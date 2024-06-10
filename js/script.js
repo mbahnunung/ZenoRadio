@@ -165,7 +165,7 @@ audio.onplay = function () {
     var bplay = document.getElementById('buttonPlay');
     if (botao.className === 'fa fa-play') {
         botao.className = 'fa fa-pause';
-        bplay.firstChild.data = 'PAUSAR';
+        bplay.firstChild.data = 'PAUSE';
     }
 }
 
