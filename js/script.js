@@ -1,6 +1,6 @@
 const RADIO_NAME = 'Webradio';
 
-// Change Stream URL Here, Supports, ICECAST, ZENO, SHOUTCAST, RADIOJAR and any other stream service.
+// Change Stream URL Here, 
 const URL_STREAMING = 'https://stream.zeno.fm/n4gzbe9ufzzuv';
 
 // You can find the mount point in the Broadcast Settings.
