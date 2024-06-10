@@ -243,18 +243,18 @@ function mute() {
     }
 }
 
-// Função para lidar com a conexão de eventos
+// Function to handle event wiring
 function connectToEventSource(url) {
     // Criar uma nova instância de EventSource com a URL fornecida
     const eventSource = new EventSource(url);
 
-    // Adicionar um ouvinte para o evento 'message'
+    // Add a listener for the 'message' event
     eventSource.addEventListener('message', function(event) {
         // Chamar a função para tratar os dados recebidos, passando a URL também
         processData(event.data, url);
     });
 
-    // Adicionar um ouvinte para o evento 'error'
+    // Add a listener for the 'error' event
     eventSource.addEventListener('error', function(event) {
         console.error('Erro na conexão de eventos:', event);
         // Tentar reconectar após um intervalo de tempo
@@ -264,53 +264,53 @@ function connectToEventSource(url) {
     });
 }
 
-// Função para tratar os dados recebidos
+// Function to process received data
 function processData(data) {
     // Parse JSON
     const parsedData = JSON.parse(data);
     
-    // Verificar se a mensagem é sobre a música
+    // Check if the message is about the song
     if (parsedData.streamTitle) {
-        // Extrair o título da música e o artista
+        // Extract song title and artist
         let artist, song;
         const streamTitle = parsedData.streamTitle;
 
         if (streamTitle.includes('-')) {
             [artist, song] = streamTitle.split(' - ');
         } else {
-            // Se não houver "-" na string, consideramos que o título é apenas o nome da música
+            // If there is no "-" in the string, we consider the title to be just the name of the song
             artist = '';
             song = streamTitle;
         }
 
-        // Criar o objeto com os dados formatados
+        // Create the object with the formatted data
         const formattedData = {
             currentSong: song.trim(),
             currentArtist: artist.trim()
         };
 
-        // Converter o objeto em JSON
+        // Convert the object to JSON
         const jsonData = JSON.stringify(formattedData);
 
-        // Chamar a função getStreamingData com os dados formatados e a URL
+        // Call the getStreamingData function with the formatted data and URL
         getStreamingData(jsonData);
     } else {
         console.log('Mensagem recebida:', parsedData);
     }
 }
 
-// Iniciar a conexão com a API
+// Start connecting to the API
 connectToEventSource(url);
 
-// Define a função de manipulação da resposta da API do Deezer no escopo global
+// Defines the Deezer API response handling function in the global scope
 function handleDeezerResponse(data, song) {
     var coverArt = document.getElementById('currentCoverArt');
     var coverBackground = document.getElementById('bgCover');
 
     if (data.data && data.data.length > 0) {
-        // Buscar o Cover pelo nome do Artista
+        // Search Cover by Artist name
         // var artworkUrl = data.data[0].artist.picture_big;
-        // Buscar o Cover pelo nome da música
+        // Search Cover by song name
         var artworkUrl = data.data[0].album.cover_big;
 
         coverArt.style.backgroundImage = 'url(' + artworkUrl + ')';
