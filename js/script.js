@@ -68,7 +68,7 @@ class Page {
             }
         };
 
-        // Função para atualizar a capa
+        // Function to update the cover
         this.refreshCover = function (song = '', artist) {
             // Default cover art
             var urlCoverArt = 'img/cover.png';
@@ -130,7 +130,7 @@ class Page {
     }
 }
 
-// Variável global para armazenar as músicas
+// Global variable to store the songs
 var audio = new Audio(URL_STREAMING);
 
 // Player control
