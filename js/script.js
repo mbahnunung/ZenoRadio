@@ -73,7 +73,7 @@ class Page {
             // Default cover art
             var urlCoverArt = 'img/cover.png';
 
-            // Criação da tag de script para fazer a requisição JSONP à API do Deezer
+            // Creation of the script tag to make the JSONP request to the Deezer API
             const script = document.createElement('script');
             script.src = `https://api.deezer.com/search?q=${artist} ${song}&output=jsonp&callback=handleDeezerResponse`;
             document.body.appendChild(script);
@@ -456,21 +456,21 @@ function displayHistory() {
     }, 2000);
 }
 
-// Função para atualizar a capa da música no histórico
+// Function to update song cover in history
 function refreshCoverForHistory(song, artist, index) {
-    // Criação da tag de script para fazer a requisição JSONP à API do Deezer
+    // Creation of the script tag to make the JSONP request to the Deezer API
     const script = document.createElement('script');
     script.src = `https://api.deezer.com/search?q=${encodeURIComponent(artist)} ${encodeURIComponent(song)}&output=jsonp&callback=handleDeezerResponseForHistory_${index}`;
     document.body.appendChild(script);
 
-    // Função de manipulação da resposta da API do Deezer para o histórico de músicas
+    // Deezer API response handling function for music history
     window['handleDeezerResponseForHistory_' + index] = function (data) {
         if (data.data && data.data.length > 0) {
-            // Atualizar a capa pelo nome do artista
+            // Update cover by artist name
             // var artworkUrl = data.data[0].artist.picture_big;
-            // Atualizar a capa pelo nome da música
+            // Update cover by song name
             var artworkUrl = data.data[0].album.cover_big;
-            // Atualizar a capa da música no histórico usando o índice correto
+            // Update song cover in history using correct index
             var $coverArt = document.querySelectorAll('#historicSong article .cover-historic')[index];
             $coverArt.style.backgroundImage = 'url(' + artworkUrl + ')';
         }
