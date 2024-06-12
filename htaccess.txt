@@ -1,0 +1,13 @@
+RewriteCond %{HTTP_HOST} ^mbahnunungonline\.net$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.mbahnunungonline\.net$
+RewriteRule ^/?$ "https\:\/\/mbahnunungonline\.net\/live" [R=301,L]
+
+# Run html without filename extension
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+
+# Return 404 if original request is .html
+RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.html[? ].*$"
+RewriteRule .* - [L,R=404]
