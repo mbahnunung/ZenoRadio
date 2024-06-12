@@ -1,17 +1,17 @@
-// Define o nome do cache
+// Sets the cache name
 const CACHE_NAME = 'web-radio-v1';
 
-// Lista de arquivos a serem cacheados
+// List of files to be cached
 const urlsToCache = [
   '/',
   '/index.html',
   '/css/style.css',
   '/js/script.js',
   '/img/cover.png',
-  // Adicione outros recursos que deseja cache aqui
+  // Add other resources you want to cache here
 ];
 
-// Instala o Service Worker e adiciona os arquivos ao cache
+// Install Service Worker and add cached files
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -22,16 +22,16 @@ self.addEventListener('install', function(event) {
   );
 });
 
-// Intercepta as solicitações e serve os arquivos em cache se disponíveis
+// Intercepts requests and serves cached files if available
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request)
       .then(function(response) {
-        // Cache hit - retorna a resposta do cache
+        // Cache hit - returns response from cache
         if (response) {
           return response;
         }
-        // Não encontrado no cache - busca na rede
+        // Not found in cache - network search
         return fetch(event.request);
       }
     )
