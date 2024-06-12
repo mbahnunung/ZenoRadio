@@ -1,9 +1,12 @@
 
 
-const RADIO_NAME = 'BINTANG TENGGARA BANYUWANGI';
+const RADIO_NAME = 'mbah nunung Online';
 
 // SELECT ARTWORK PROVIDER, ITUNES, DEEZER & SPOTIFY  eg : spotify 
 var API_SERVICE = 'spotify';
+
+//PASTE YOUR MEDIA CP JSON URL HERE TO GET NOW PLAYING SONG TITLE.
+const MEDIACP_JSON_URL = ''
 
 // Change Stream URL Here, Supports, ZENO
 const URL_STREAMING = 'https://stream.zeno.fm/n4gzbe9ufzzuv';
@@ -70,17 +73,16 @@ function Page() {
         var $artistName = document.querySelectorAll('#historicSong article .music-info .artist');
 
         // Default cover art
-        var urlCoverArt = 'img/cover.png';
+        var urlCoverArt = 'https://i.imgur.com/w0rUYAY.png';
 
         // Get cover art for song history
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 var data = JSON.parse(this.responseText);
-                var artwork = data.results.artwork;
-                 var artworkXL = artwork.medium;
+                var artworkUrl100 = (data.resultCount) ? data.results[0].artworkUrl100 : urlCoverArt;
 
-                document.querySelectorAll('#historicSong article .cover-historic')[n].style.backgroundImage = 'url(' + artworkUrl + ')';
+                document.querySelectorAll('#historicSong article .cover-historic')[n].style.backgroundImage = 'url(' + artworkUrl100 + ')';
             }
             // Formating characters to UTF-8
             var music = info.song.replace(/&apos;/g, '\'');
@@ -96,7 +98,7 @@ function Page() {
             $historicDiv[n].classList.add('animated');
             $historicDiv[n].classList.add('slideInRight');
         }
-        xhttp.open('GET', 'https://api.miradio.pro/musicsearch?query=' + info.artist + ' ' + info.song + '&service=' + API_SERVICE.toLowerCase());
+        xhttp.open('GET', 'https://itunes.apple.com/search?term=' + info.artist + ' ' + info.song + '&media=music&limit=1', true);
         xhttp.send();
 
         setTimeout(function () {
@@ -109,18 +111,25 @@ function Page() {
 
     this.refreshCover = function (song = '', artist) {
         // Default cover art
-        var urlCoverArt = 'img/cover.png';
+        var urlCoverArt = 'https://i.imgur.com/w0rUYAY.png';
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             var coverArt = document.getElementById('currentCoverArt');
             var coverBackground = document.getElementById('bgCover');
 
-            // Get cover art URL on iTunes API
+           // Get cover art URL on iTunes API
             if (this.readyState === 4 && this.status === 200) {
                 var data = JSON.parse(this.responseText);
-                var artworkUrl100 = data.results;
-                var urlCoverArt = artworkUrl100.artwork.large;
+                var artworkUrl100 = (data.resultCount) ? data.results[0].artworkUrl100 : urlCoverArt;
+
+                // Se retornar algum dado, alterar a resolução da imagem ou definir a padrão
+                urlCoverArt = (artworkUrl100 != urlCoverArt) ? artworkUrl100.replace('100x100bb', '640x640bb') : urlCoverArt;
+                var urlCoverArt96 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('512x512bb', '96x96bb') : urlCoverArt;
+                var urlCoverArt128 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('512x512bb', '128x128bb') : urlCoverArt;
+                var urlCoverArt192 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('512x512bb', '192x192bb') : urlCoverArt;
+                var urlCoverArt256 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('512x512bb', '256x256bb') : urlCoverArt;
+                var urlCoverArt384 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('512x512bb', '384x384bb') : urlCoverArt;
 
                 coverArt.style.backgroundImage = 'url(' + urlCoverArt + ')';
                 coverArt.className = 'animated bounceInLeft';
@@ -136,27 +145,27 @@ function Page() {
                         title: song,
                         artist: artist,
                         artwork: [{
-                                src: urlCoverArt,
+                                src: urlCoverArt96,
                                 sizes: '96x96',
                                 type: 'image/png'
                             },
                             {
-                                src: urlCoverArt,
+                                src: urlCoverArt128,
                                 sizes: '128x128',
                                 type: 'image/png'
                             },
                             {
-                                src: urlCoverArt,
+                                src: urlCoverArt192,
                                 sizes: '192x192',
                                 type: 'image/png'
                             },
                             {
-                                src: urlCoverArt,
+                                src: urlCoverArt256,
                                 sizes: '256x256',
                                 type: 'image/png'
                             },
                             {
-                                src: urlCoverArt,
+                                src: urlCoverArt384,
                                 sizes: '384x384',
                                 type: 'image/png'
                             },
@@ -170,7 +179,7 @@ function Page() {
                 }
             }
         }
-        xhttp.open('GET', 'https://api.miradio.pro/musicsearch?query=' + artist + ' ' + song + '&service=' + API_SERVICE.toLowerCase());
+        xhttp.open('GET', 'https://itunes.apple.com/search?term=' + artist + ' ' + song + '&media=music&limit=1', true);
         xhttp.send();
     }
 
@@ -314,7 +323,19 @@ function displayHistory() {
 
 // Function to update song cover in history
 function refreshCoverForHistory(song, artist, index) {
-    
+    // Creation of the script tag to make the JSONP request to the Deezer API
+    const script = document.createElement('script');
+    script.src = `https://api.deezer.com/search?q=${encodeURIComponent(artist)} ${encodeURIComponent(song)}&output=jsonp&callback=handleDeezerResponseForHistory_${index}`;
+    document.body.appendChild(script);
+
+    // Deezer API response handling function for music history
+    window['handleDeezerResponseForHistory_' + index] = function (data) {
+        if (data.data && data.data.length > 0) {
+            // Update cover by artist name
+            // var artworkUrl = data.data[0].artist.picture_big;
+            // Update cover by song name
+            var artworkUrl = data.data[0].album.cover_big;
+            // Update song cover in history using correct index
             var $coverArt = document.querySelectorAll('#historicSong article .cover-historic')[index];
             $coverArt.style.backgroundImage = 'url(' + artworkUrl + ')';
         }
