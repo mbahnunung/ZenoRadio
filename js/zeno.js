@@ -1,6 +1,6 @@
 
 
-const RADIO_NAME = 'BINTANG TENGGARA BANYUWANGI';
+const RADIO_NAME = 'mbah nunung Online';
 
 // SELECT ARTWORK PROVIDER, ITUNES, DEEZER & SPOTIFY  eg : spotify 
 var API_SERVICE = 'spotify';
