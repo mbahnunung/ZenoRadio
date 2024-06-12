@@ -14,7 +14,6 @@ body {
     overflow-x: hidden;
 }
 
-
 .cover-site {
     min-width: 100%;
     min-height: 100%;
@@ -26,7 +25,7 @@ body {
     background-attachment: fixed;
 }
 
-/* FONDO DESENFOQUE */
+/* BLUR BACKGROUND */
 
 #bgCover {
     height: 100%;
@@ -71,8 +70,6 @@ body {
     margin-bottom: 15px;
 }
 
-
-
 #currentCoverArt {
     width: 100%;
     height: 316px;
@@ -95,7 +92,7 @@ body {
 }
 
 .info-current-song h2 {
-    font-size: 38px;
+    font-size: 28px;
     text-transform: uppercase;
     font-weight: 800;
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
@@ -132,7 +129,7 @@ body {
 }
 
 .volume-slide {
-     /* Adicionando sombra */
+     /* Adding shadow */
      text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -267,7 +264,6 @@ input[type=range]::-ms-thumb {
     cursor: pointer;
 }
 
-
 .historic h2 {
     color: #fefefe;
     border-bottom: 2px solid #fefefe;
@@ -279,8 +275,7 @@ input[type=range]::-ms-thumb {
     
 }
 
-
-/* ZONA FONDO CANCIONES SONADAS */
+/* BACKGROUND AREA PLAYED SONGS */
 
 .historic article {
     margin: 5px 0;
@@ -302,7 +297,7 @@ input[type=range]::-ms-thumb {
     transition: background-image 1s;
 }
 
-/* COLOR TEXTO INFO ARTISTA */
+/* COLOR TEXT INFO ARTIST */
 .historic .music-info {
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -310,7 +305,7 @@ input[type=range]::-ms-thumb {
 }
 
 
-/* COLOR TEXTO CANCION */
+/* SONG TEXT COLOR */
 
 .historic .music-info .song {
     width: 100%;
@@ -395,12 +390,12 @@ input[type=range]::-ms-thumb {
     background-color: white;
     border: none;
     color: black;
-    padding: 10px 20px; /* Reduzindo o preenchimento */
-    font-size: 14px; /* Reduzindo o tamanho da fonte */
+    padding: 10px 20px; /* Reducing padding */
+    font-size: 14px; /* Reducing font size */
     font-weight: bold;
     cursor: pointer;
     border-radius: 20px;
-    width: auto; /* Largura automática */
+    width: auto; /* Auto Width */
     transition: transform .2s;
     box-shadow: 1px 3px #30303022;
 }
