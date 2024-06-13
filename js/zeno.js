@@ -162,7 +162,7 @@ function Page() {
         const Syahiba = 'https://i.scdn.co/image/ab67616d0000b27378fdcad5374c66bd8f7321c5'; 
         const OmpRock = 'https://i1.sndcdn.com/artworks-000069866100-96taaq-t500x500.jpg';
         const Virgia_Hassan = 'https://i.ytimg.com/vi/g3A7Cp2yAro/maxresdefault.jpg';
-        const Anisa_Rahman = 'https://i.scdn.co/image/ab67616d0000b273948e6ac1d0bc98d8269b9697'; 
+        const Vita = 'https://live.staticflickr.com/65535/53458574431_71955797d8_z.jpg';
         const Anggun = 'https://i.scdn.co/image/ab67616d0000b273068bcbbb986ad0ee76c02f76'; 
         
         if (artist == 'FRATELLO') {var urlCoverArt = FRATELLO;}
@@ -207,7 +207,7 @@ function Page() {
             else if (artist == 'Syahiba Saufa') {var urlCoverArt = Syahiba;} 
             else if (artist == 'OmpRock') {var urlCoverArt = OmpRock;} 
             else if (artist == 'Virgia Hassan') {var urlCoverArt = Virgia_Hassan;} 
-            else if (artist == 'Anisa Rahman') {var urlCoverArt = Anisa_Rahman;} 
+            else if (artist == 'Vita Alvia') {var urlCoverArt = Vita;} 
             else if (artist == 'Anggun') {var urlCoverArt = Anggun;} 
         // Default cover art
         else {var urlCoverArt = DEFAULT_COVER_ART;}
