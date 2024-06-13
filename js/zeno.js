@@ -2,13 +2,10 @@
 
 const RADIO_NAME = 'mbah nunung Online';
 
-// SELECT ARTWORK PROVIDER, ITUNES, DEEZER & SPOTIFY  eg : spotify 
-// var API_SERVICE = 'spotify';
-
 //PASTE YOUR MEDIA CP JSON URL HERE TO GET NOW PLAYING SONG TITLE.
 const MEDIACP_JSON_URL = '' 
 
-const DEFAULT_COVER_ART = 'https://i.imgur.com/y9mWiAx.png';
+const DEFAULT_COVER_ART = 'img/generic_song.jpg';
 
 // Change Stream URL Here, Supports, ZENO
 const URL_STREAMING = 'https://stream.zeno.fm/n4gzbe9ufzzuv';
