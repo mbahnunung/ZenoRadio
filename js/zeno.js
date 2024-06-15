@@ -16,7 +16,7 @@ const RADIO_NAME = 'mbah nunung Online';
 const MEDIACP_JSON_URL = '' 
 
 //PASTE DEFAULT COVER
-const DEFAULT_COVER_ART = 'img/generic_song.jpg';
+const DEFAULT_COVER_ART = 'https://mbahnunungonline.net/img/m60X6pG.png';
 
 // Change Stream URL Here, Supports, ZENO
 const URL_STREAMING = 'https://stream.zeno.fm/n4gzbe9ufzzuv';
