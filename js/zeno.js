@@ -165,7 +165,7 @@ function Page() {
         const OmpRock = 'https://i1.sndcdn.com/artworks-000069866100-96taaq-t500x500.jpg';
         const Virgia_Hassan = 'https://i.ytimg.com/vi/g3A7Cp2yAro/maxresdefault.jpg';
         const Vita = 'https://live.staticflickr.com/65535/53458574431_71955797d8_z.jpg';
-        const Anggun = 'https://i.scdn.co/image/ab67616d0000b273068bcbbb986ad0ee76c02f76'; 
+        const Melinda_Varera = 'https://i.scdn.co/image/ab67616d0000b2739e8575dbb9c92a4f3984a811'; 
         
         if (artist == 'FRATELLO') {var urlCoverArt = FRATELLO;}
             else if (artist == 'Commercial Break') {var urlCoverArt = Commercial_Break;}
@@ -210,7 +210,7 @@ function Page() {
             else if (artist == 'OmpRock') {var urlCoverArt = OmpRock;} 
             else if (artist == 'Virgia Hassan') {var urlCoverArt = Virgia_Hassan;} 
             else if (artist == 'Vita Alvia') {var urlCoverArt = Vita;} 
-            else if (artist == 'Anggun') {var urlCoverArt = Anggun;} 
+            else if (artist == 'Melinda Varera') {var urlCoverArt = Melinda_Varera;} 
         // Default cover art
         else {var urlCoverArt = DEFAULT_COVER_ART;}
         
