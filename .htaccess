@@ -2,7 +2,6 @@ RewriteCond %{HTTP_HOST} ^mbahnunungonline\.net$ [OR]
 RewriteCond %{HTTP_HOST} ^www\.mbahnunungonline\.net$
 RewriteRule ^/?$ "https\:\/\/mbahnunungonline\.net\/live" [R=301,L] 
 
-
 # Run html without filename extension
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
