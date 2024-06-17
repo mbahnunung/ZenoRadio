@@ -358,6 +358,9 @@ function displayHistory() {
     var $songName = document.querySelectorAll('#historicSong article .music-info .song');
     var $artistName = document.querySelectorAll('#historicSong article .music-info .artist');
 
+    // Default cover art
+        var urlCoverArt = DEFAULT_COVER_ART;
+
     // Display the last two songs in history, starting from index 1 to delete the current song
     for (var i = 1; i < musicHistory.length && i < 3; i++) {
         $songName[i - 1].innerHTML = musicHistory[i].song;
