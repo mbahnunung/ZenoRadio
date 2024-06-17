@@ -77,49 +77,7 @@ function Page() {
             }, 2000);
         }
     }
-
-    this.refreshHistoric = function (info, n) {
-        var $historicDiv = document.querySelectorAll('#historicSong article');
-        var $songName = document.querySelectorAll('#historicSong article .music-info .song');
-        var $artistName = document.querySelectorAll('#historicSong article .music-info .artist');
-
-        // Default cover art
-        var urlCoverArt = DEFAULT_COVER_ART;
-
-        // Get cover art for song history
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                var data = JSON.parse(this.responseText);
-                var artworkUrl100 = (data.resultCount) ? data.results[0].artworkUrl100 : urlCoverArt;
-
-                document.querySelectorAll('#historicSong article .cover-historic')[n].style.backgroundImage = 'url(' + artworkUrl100 + ')';
-            }
-            // Formating characters to UTF-8
-            var music = info.song.replace(/&apos;/g, '\'');
-            var songHist = music.replace(/&amp;/g, '&');
-
-            var artist = info.artist.replace(/&apos;/g, '\'');
-            var artistHist = artist.replace(/&amp;/g, '&');
-
-            $songName[n].innerHTML = songHist;
-            $artistName[n].innerHTML = artistHist;
-
-            // Add class for animation
-            $historicDiv[n].classList.add('animated');
-            $historicDiv[n].classList.add('slideInRight');
-        }
-        xhttp.open('GET', 'https://itunes.apple.com/search?term=' + artist + ' ' + song + '&media=music&limit=1', true);
-        xhttp.send();
-
-        setTimeout(function () {
-            for (var j = 0; j < 2; j++) {
-                $historicDiv[j].classList.remove('animated');
-                $historicDiv[j].classList.remove('slideInRight');
-            }
-        }, 2000);
-    }
-   
+     
   // Artist Covers - Below 
   this.refreshCover = function (song = '', artist) {
         const Commercial_Break = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibcs6vIO8Vba2tDSU0hUJP3hs91nM0creXY3ZIOdj-q5YWXxZp_X5R7nSCwaxWd-K_erlfIkdDH9CvgXfKr-gUmJ_JzNLyohKv0eLqxHUhWfO7hOjgcQ95D4dFOFlsV_rTmGYFJ-13tU0GUeis_VPd2SWxrRNhCYMPusLfZ_U5g4W4jg1ONV3aT8UaPTqJ/s1600/gMzoJtq.jpg';
