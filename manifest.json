@@ -1,7 +1,7 @@
 {
   "name": "mbah nunung Online",
-  "short_name": "mbah nn Radio",
-  "start_url": "/index.html",
+  "short_name": "Mbah Nunung Radio",
+  "start_url": "/live.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
