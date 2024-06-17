@@ -308,7 +308,7 @@ function handleDeezerResponse(data, song) {
         // Search Cover by Artist name
         // var artworkUrl = data.data[0].artist.picture_xl;
         // Search Cover by song name
-        var artworkUrl = data.data[0].album.cover_big;
+        var artworkUrl = data.data[0].album.cover_xl;
 
         coverArt.style.backgroundImage = 'url(' + artworkUrl + ')';
         coverArt.className = 'animated bounceInLeft';
@@ -466,7 +466,7 @@ function refreshCoverForHistory(song, artist, index) {
             // Update cover by artist name
             // var artworkUrl = data.data[0].artist.picture_big;
             // Update cover by song name
-            var artworkUrl = data.data[0].album.cover_xl;
+            var artworkUrl = data.data[0].album.cover_big;
             // Update song cover in history using correct index
             var $coverArt = document.querySelectorAll('#historicSong article .cover-historic')[index];
             $coverArt.style.backgroundImage = 'url(' + artworkUrl + ')';
