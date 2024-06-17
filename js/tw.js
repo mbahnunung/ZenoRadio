@@ -183,13 +183,13 @@ audio.onvolumechange = function () {
     }
 }
 
-audio.onerror = function () {
-    var confirmacao = confirm('Stream Down / Network Error. \nClick OK to try again.');
+//audio.onerror = function () {
+    //var confirmacao = confirm('Stream Down / Network Error. \nClick OK to try again.');
 
-    if (confirmacao) {
+    //if (confirmacao) {
         window.location.reload();
-    }
-}
+    //}
+//}
 
 document.getElementById('volume').oninput = function () {
     audio.volume = intToDecimal(this.value);
@@ -379,7 +379,7 @@ function getStreamingData(data) {
     let artist = jsonData.currentArtist.replace(/&apos;/g, '\'').replace(/&amp;/g, '&');
 
     // Mudar o título
-    document.title = song + ' - ' + artist + ' | ' + RADIO_NAME;
+    document.title = artist + ' - ' + song + ' | ' + RADIO_NAME;
 
     page.refreshCover(song, artist);
     page.refreshCurrentSong(song, artist);
@@ -418,7 +418,7 @@ function updateMusicHistory(artist, song) {
 
     // Keep only the last two songs in history
     if (musicHistory.length > 4) {
-        musicHistory.pop(); // Remove a música mais antiga do histórico
+        musicHistory.pop(); // Remove the oldest song from the history
     }
 
     // Call function to display updated history
@@ -431,15 +431,15 @@ function displayHistory() {
     var $songName = document.querySelectorAll('#historicSong article .music-info .song');
     var $artistName = document.querySelectorAll('#historicSong article .music-info .artist');
 
-    // Exibir as duas últimas músicas no histórico, começando do índice 1 para excluir a música atual
+    // Display the last two songs in history, starting from index 1 to delete the current song
     for (var i = 1; i < musicHistory.length && i < 3; i++) {
         $songName[i - 1].innerHTML = musicHistory[i].song;
         $artistName[i - 1].innerHTML = musicHistory[i].artist;
 
-        // Chamar a função para buscar a capa da música na API do Deezer
+        // Call the function to search for the song cover in the Deezer API
         refreshCoverForHistory(musicHistory[i].song, musicHistory[i].artist, i - 1);
 
-        // Adicionar classe para animação
+        // Add class for animation
         $historicDiv[i - 1].classList.add('animated');
         $historicDiv[i - 1].classList.add('slideInRight');
     }
