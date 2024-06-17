@@ -127,7 +127,7 @@ class Page {
     }
 }
 
-// Variável global para armazenar as músicas
+// Global variable to store the songs
 var audio = new Audio(URL_STREAMING);
 
 // Player control
@@ -183,13 +183,13 @@ audio.onvolumechange = function () {
     }
 }
 
-//audio.onerror = function () {
-    //var confirmacao = confirm('Stream Down / Network Error. \nClick OK to try again.');
+audio.onerror = function () {
+    var confirmacao = confirm('Stream Down / Network Error. \nClick OK to try again.');
 
-    //if (confirmacao) {
+    if (confirmacao) {
         window.location.reload();
-    //}
-//}
+    }
+}
 
 document.getElementById('volume').oninput = function () {
     audio.volume = intToDecimal(this.value);
