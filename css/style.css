@@ -208,7 +208,7 @@ input[type=range]::-webkit-slider-thumb {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background: #fefefe;
+    background: #ff0000;
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -8px;
@@ -401,7 +401,7 @@ input[type=range]::-ms-thumb {
     font-weight: bold;
     cursor: pointer;
     border-radius: 20px;
-    width: auto; /* Largura automÃ¡tica */
+    width: auto; /* Largura automática */
     transition: transform .2s;
     box-shadow: 1px 3px #30303022;
 }
