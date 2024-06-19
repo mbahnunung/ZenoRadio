@@ -230,7 +230,7 @@ input[type=range]::-moz-range-thumb {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background: #fefefe;
+    background: #ff0000;
     cursor: pointer;
 }
 
@@ -417,3 +417,4 @@ input[type=range]::-ms-thumb {
     color: white;
 
 }
+
