@@ -6,7 +6,7 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/css/style.css',
-  '/js/script.js',
+  '/js/zeno.js',
   '/img/cover.png',
   // Add other resources you want to cache here
 ];
