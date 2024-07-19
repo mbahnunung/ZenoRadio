@@ -12,20 +12,17 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 const RADIO_NAME = 'mbah nunung Online';
 
-//PASTE YOUR MEDIA CP JSON URL HERE TO GET NOW PLAYING SONG TITLE.
-const MEDIACP_JSON_URL = '' 
-
-//PASTE DEFAULT COVER
-const DEFAULT_COVER_ART = 'https://mbahnunungonline.net/img/m60X6pG.png';
-
-// Change Stream URL Here, Supports, ZENO
+// Change Zeno Stream URL Here, .
 const URL_STREAMING = 'https://stream.zeno.fm/n4gzbe9ufzzuv';
 
-// Api URL
+//API URL Zeno Now Playing
 const url = 'https://api.zeno.fm/mounts/metadata/subscribe/n4gzbe9ufzzuv';
 
 // Visit https://api.vagalume.com.br/docs/ to get your API key
 const API_KEY = "18fe07917957c289983464588aabddfb";
+
+// Change DEFAULT COVER
+const DEFAULT_COVER_ART = 'https://cdn4.mbahnunungonline.net/img/NoCover.png';
 
 // Variable to control history display: true = display / false = hides
 let showHistory = true; 
@@ -42,7 +39,7 @@ window.onload = function () {
     // Interval to get streaming data in miliseconds
     setInterval(function () {
         getStreamingData();
-    }, 10000);
+    }, 20000);
 
     var coverArt = document.getElementsByClassName('cover-album')[0];
 
@@ -80,10 +77,10 @@ function Page() {
      
   // Artist Covers - Below 
   this.refreshCover = function (song = '', artist) {
-        const Commercial_Break = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibcs6vIO8Vba2tDSU0hUJP3hs91nM0creXY3ZIOdj-q5YWXxZp_X5R7nSCwaxWd-K_erlfIkdDH9CvgXfKr-gUmJ_JzNLyohKv0eLqxHUhWfO7hOjgcQ95D4dFOFlsV_rTmGYFJ-13tU0GUeis_VPd2SWxrRNhCYMPusLfZ_U5g4W4jg1ONV3aT8UaPTqJ/s1600/gMzoJtq.jpg';
-        const JINGLESETELAHIKLAN = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7LcmmE4HMmFeQYRqMJsfOlI7qtoBGpvk2Y2aMm1XSpQ_FcIZWELwnh-8ykQy9s05Qlz5nFgJAQy2zTZn_k3G8DtVQwWTlgDIEZeqm3mas2VCv-36CklyI5D4QZkF_EzD8eq7DcwqmTsndHC17wGUCVltPbyWqWSKoODfbKwg_D73Q4wEASuu77Xb-BugP/s1600/dbwvp4y.png';
+        const BEN_ISTIQOMAH = 'https://i.scdn.co/image/ab67616d0000b273fb6ff58fc0ee0612de81ce89';
+        const BluÃ«KUtHUQ = 'https://e.snmc.io/i/1200/s/40199f8c8f91ac3b38aafdf3ef3f1f24/2523830';
         const TS = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoYOoThYoQy_1IHIOkOWhSv7ZumvhWQVgCCUAa1PtItmRqi7LpFLBOlRVnmMJvjw2_m91utqlbmj_XRJzqxROWHC5fJqk664UghWdsbX_sqI4vMFue3Ii68m4cfh5kQNAWFM6v4YGjSyP1TdH1SySeBmMx9Ewaeyyu5qhTcon4wKP0VFY9KxHvJrEScFED/s1600/P8KFcGD.png';
-        const Bintang_Tenggara = 'img/fF8yUE0.png';
+        const Erina = 'https://i.ytimg.com/vi/kY_q7k0gzlg/maxresdefault.jpg';
         const Dengarkami = 'https://warningfm.github.io/v3/img/yx3lPLHp_t.jpg';
         const JINGLE = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwRqAS90NVntGw3KRvRy8ZfMmOWAUH6r7-0fDph8OXZE5aOEE8VHnvNP4DqpPNTOaQ6eqJJUpyW-QG9092-UjOCnbw4hzHXkZ4q4_68WeZHMqWHcUW6qV42XVK-EJhiqNSLXwveYZnUGWuSs6QOy0bz2omDTyrE-yUay1TbClQS5a91JjyKskyNtWT0bRo/s1600/ed6F7ZU.jpg';
         const TANDAWAKTUSHOLATDHUHUR = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2F9RU0k7w_EWKjhsDP-YJAfCnFxFzW21G8mqmiSDSf-J5ocGv4yOjb5nuGFhlJW9iBAPWgjEn4jhr-bt-CK84RGFtJf6JneNMZgpbYV1Mi-mwbr7rzeu77mm-MqL7rbk_8O5sduTnGPdMj000VGVCbGc_gR1IgAr6-FrDcXpg-vun-lebVxtLEnuGAwUz/s1600/m2iqnIm.jpg';
@@ -99,25 +96,25 @@ function Page() {
         const AlffyRev  = 'https://i.scdn.co/image/ab67616d0000b273d0572746e75788f3a073899b';
         const Ajeng = 'https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/e5/47/cf/e547cfe3-f707-7175-9123-b640435f6a8c/cover.jpg/1200x1200bb.jpg';
         const Agnes_Monica = 'https://i.scdn.co/image/ab6761610000e5eb09160e5ffdc256e65713a8a9';
-        const INNA_Ft_Yandel = 'https://i1.sndcdn.com/artworks-000060831547-7emuqa-t500x500.jpg';
+        const Alfian = 'https://i.scdn.co/image/ab67616d0000b27383d45abd325bfbc2f40a3911';
         const SOLUSI_SEHAT = 'https://images2.imgbox.com/f8/ca/GwuLQxLZ_o.jpg';
         const Ari_Lasso = 'https://i.scdn.co/image/ab6761610000e5eb4e1ed336c3ff93a95fa44e14';
-        const Gracie_Abrams = 'https://i.scdn.co/image/ab67616d0000b2733be2b12525a2f506780901a3';
+        const Krismi_Rolas = 'https://thumbs2.imgbox.com/1b/62/RaBcIk5Y_t.jpg';
         const Andmesh = 'https://i1.sndcdn.com/artworks-000644192974-fr8aja-t500x500.jpg';
         const Dewa_19_Ft_Virzha = 'https://i.scdn.co/image/ab67616d0000b2734383e26d01a2dd18452b7b37';
         const Dewa_19_Ft_Ello = 'https://i.scdn.co/image/ab67616d0000b2730b591f8644a5a5106169a30a';
-        const Libianca_Ft_Cian_Ducrot = 'https://i.scdn.co/image/ab67616d0000b273d14949518f0851b6d9e61eeb';
+        const All_Artist_BWI = 'https://i.ytimg.com/vi/tm9aDZJlMb8/maxresdefault.jpg';
         const EghaLatoya  = 'https://i1.sndcdn.com/artworks-000145717002-8rm80q-t500x500.jpg';
         const GamelAwan = 'https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/99/b5/ef/99b5ef28-8196-0307-dd64-d3defa86eb50/cover.jpg/1200x1200bb.png';
         const Adistya = 'https://i.scdn.co/image/ab67616d0000b273cac7c5e2d5bf5e61ebcbfae1';
         const DemyYoker = 'https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c6/6d/ba/c66dba5b-2972-3f16-ba13-f21eb6705287/cover.jpg/1200x1200bb.jpg';
         const Rozy = 'https://yt3.googleusercontent.com/k3FluG3Cks7LH-1dveRTySBs2p7dUgvdDbV_Cd5wE7njxyyiGBL9brJ7xGHaZ5GY6ocrVv-9dg=s900-c-k-c0x00ffffff-no-rj';
         const Reny = 'https://viberatecdn.blob.core.windows.net/entity/artist/reny-farida-sWRmh';
-        const Kurnia_Dewi = 'https://i.imgur.com/9H315Oi.jpg';
-        const AlviAnanta = 'https://joox-cms-image-1251316161.file.myqcloud.com/2021/09/28/8cbaa312-151c-4ba3-b28e-52c5be1c2766.jpg/500';
+        const Kurnia_Dewi = 'https://thumbs2.imgbox.com/25/17/7EGrbSWQ_t.jpg';
+        const AlviAnanta = 'https://i1.sndcdn.com/artworks-000691852279-zhd4cw-t500x500.jpg';
         const Catur_Arum  = 'https://i1.sndcdn.com/artworks-000227858822-l8w6ww-t500x500.jpg'; 
         const Syahiba_Saufa_Ft_Shinta_Arsinta = 'https://i.scdn.co/image/ab67616d0000b2737dd4ba70910664a26fb1c7e0'; 
-        const Lusiana = 'https://id-test-11.slatic.net/p/60eb11ec48bf720ce80a1bab4065e08d.jpg'; 
+        const Lusiana = 'https://thumbs2.imgbox.com/da/bd/1aijXmkg_t.jpg'; 
         const Suliyana = 'https://i.scdn.co/image/ab67616d0000b2733e4c6986797db1877c5be37d';
         const Syahiba = 'https://i.scdn.co/image/ab67616d0000b27378fdcad5374c66bd8f7321c5'; 
         const OmpRock = 'https://i1.sndcdn.com/artworks-000069866100-96taaq-t500x500.jpg';
@@ -126,11 +123,10 @@ function Page() {
         const Melinda_Varera = 'https://i.scdn.co/image/ab67616d0000b2739e8575dbb9c92a4f3984a811'; 
         const Furkan_Sert = 'https://i1.sndcdn.com/artworks-000498456858-0gn1c8-t500x500.jpg'; 
         
-        if (artist == 'FRATELLO') {var urlCoverArt = FRATELLO;}
-            else if (artist == 'Commercial Break') {var urlCoverArt = Commercial_Break;}
-            else if (artist == 'JINGLE SETELAH IKLAN') {var urlCoverArt = JINGLESETELAHIKLAN;}
+        if (artist == 'BEN ISTIQOMAH') {var urlCoverArt = BEN_ISTIQOMAH;}
+            else if (artist == 'BluÃ«KUtHUQ') {var urlCoverArt = BluÃ«KUtHUQ;}
             else if (artist == 'TS') {var urlCoverArt = TS;}
-            else if (artist == 'Bintang Tenggara') {var urlCoverArt = Bintang_Tenggara;}
+            else if (artist == 'Erina') {var urlCoverArt = Erina;}
             else if (artist == 'DENGAR KAMI') {var urlCoverArt = Dengarkami;}
             else if (artist == 'JINGLE') {var urlCoverArt = JINGLE;}
             else if (artist == 'TANDA WAKTU SHOLAT DHUHUR') {var urlCoverArt = TANDAWAKTUSHOLATDHUHUR;}
@@ -146,13 +142,13 @@ function Page() {
             else if (artist == 'Alffy Rev') {var urlCoverArt = AlffyRev;}
             else if (artist == 'Ajeng') {var urlCoverArt = Ajeng;}
             else if (artist == 'Agnes Monica') {var urlCoverArt = Agnes_Monica;}
-            else if (artist == 'INNA Ft Yandel') {var urlCoverArt = INNA_Ft_Yandel;}
+            else if (artist == 'Alfian') {var urlCoverArt = Alfian;}
             else if (artist == 'SOLUSI SEHAT') {var urlCoverArt = SOLUSI_SEHAT;}
             else if (artist == 'Ari Lasso') {var urlCoverArt = Ari_Lasso;}
-            else if (artist == 'Gracie Abrams') {var urlCoverArt = Gracie_Abrams;}
+            else if (artist == 'Krismi Rolas') {var urlCoverArt = Krismi_Rolas;}
             else if (artist == 'Andmesh') {var urlCoverArt = Andmesh;}
             else if (artist == 'Dewa 19 Ft Virzha') {var urlCoverArt = Dewa_19_Ft_Virzha;}
-            else if (artist == 'Dewa 19 Ft Ello') {var urlCoverArt = Dewa_19_Ft_Ello;}
+            else if (artist == 'All Artist BWI') {var urlCoverArt = All_Artist_BWI;}
             else if (artist == 'Egha De Latoya') {var urlCoverArt = EghaLatoya;}
             else if (artist == 'Gamel Awan') {var urlCoverArt = GamelAwan;}
             else if (artist == 'Adistya Mayasari') {var urlCoverArt = Adistya;}
@@ -184,13 +180,13 @@ function Page() {
                 var data = JSON.parse(this.responseText);
                 var artworkUrl100 = (data.resultCount) ? data.results[0].artworkUrl100 : urlCoverArt;
 
-                // Se retornar algum dado, alterar a resolução da imagem ou definir a padrão
-                urlCoverArt = (artworkUrl100 != urlCoverArt) ? artworkUrl100.replace('100x100bb', '640x640bb') : urlCoverArt;
-                var urlCoverArt96 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('512x512bb', '96x96bb') : urlCoverArt;
-                var urlCoverArt128 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('512x512bb', '128x128bb') : urlCoverArt;
-                var urlCoverArt192 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('512x512bb', '192x192bb') : urlCoverArt;
-                var urlCoverArt256 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('512x512bb', '256x256bb') : urlCoverArt;
-                var urlCoverArt384 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('512x512bb', '384x384bb') : urlCoverArt;
+                // If it returns any data, changes the image resolution or sets the default
+                urlCoverArt = (artworkUrl100 != urlCoverArt) ? artworkUrl100.replace('100x100bb', '1200x1200bb') : urlCoverArt;
+                var urlCoverArt96 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('1200x1200bb', '96x96bb') : urlCoverArt;
+                var urlCoverArt128 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('1200x1200bb', '128x128bb') : urlCoverArt;
+                var urlCoverArt192 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('1200x1200bb', '192x192bb') : urlCoverArt;
+                var urlCoverArt256 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('1200x1200bb', '256x256bb') : urlCoverArt;
+                var urlCoverArt384 = (artworkUrl100 != urlCoverArt) ? urlCoverArt.replace('1200x1200bb', '384x384bb') : urlCoverArt;
 
                 coverArt.style.backgroundImage = 'url(' + urlCoverArt + ')';
                 coverArt.className = 'animated bounceInLeft';
@@ -342,7 +338,7 @@ var musicHistory = [];
 
 // Function to update the history of the last two songs
 function updateMusicHistory(artist, song) {
-    // Adicionar a nova música no início do histórico
+    // Adicionar a nova mÃƒÂºsica no inÃƒÂ­cio do histÃƒÂ³rico
     musicHistory.unshift({ artist: artist, song: song });
 
     // Keep only the last two songs in history
@@ -527,8 +523,8 @@ function connectToEventSource(url) {
 
     // Add a listener for the 'error' event
     eventSource.addEventListener('error', function(event) {
-        console.error('Erro na conexão de eventos:', event);
-        // Tentar reconectar após um intervalo de tempo
+        console.error('Erro na conexÃƒÂ£o de eventos:', event);
+        // Tentar reconectar apÃƒÂ³s um intervalo de tempo
         setTimeout(function() {
             connectToEventSource(url);
         }, 1000);
