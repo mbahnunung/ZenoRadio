@@ -1,10 +1,10 @@
 const RADIO_NAME = 'Your Radio';
 
 // Change Azuracast Stream URL Here, .
-const URL_STREAMING = 'https://azuracp.web-radios.eu/listen/treloparea/stream';
+const URL_STREAMING = 'https://asv.alhastream.com/listen/radio_bintang_tenggara_2.0/radio';
 
 //API URL Azuracast Now Playing
-const API_URL = 'https://azuracp.web-radios.eu/api/nowplaying/2';
+const API_URL = 'https://asv.alhastream.com/api/nowplaying/38';
 
 // Visit https://api.vagalume.com.br/docs/ to get your API key
 const API_KEY = "18fe07917957c289983464588aabddfb";
@@ -107,17 +107,17 @@ class Page {
         }
 
         this.refreshHistoric = function (songData, index) {
-            // Selecione os elementos HTML correspondentes ao histórico de músicas
+            // Selecione os elementos HTML correspondentes ao histÃ³rico de mÃºsicas
             var historicSongs = document.getElementById('historicSong').querySelectorAll('.col-md-6');
         
-            // Verifica se o índice está dentro do intervalo válido
+            // Verifica se o Ã­ndice estÃ¡ dentro do intervalo vÃ¡lido
             if (index >= 0 && index < historicSongs.length) {
                 var historicItem = historicSongs[index];
                 var coverElement = historicItem.querySelector('.cover-historic');
                 var songElement = historicItem.querySelector('.song');
                 var artistElement = historicItem.querySelector('.artist');
         
-                // Atualize os elementos com os dados da música
+                // Atualize os elementos com os dados da mÃºsica
                 if (coverElement) {
                     coverElement.style.backgroundImage = 'url(' + songData.art + ')';
                 }
@@ -128,7 +128,7 @@ class Page {
                     artistElement.textContent = songData.artist;
                 }
             } else {
-                console.error('Índice fora do intervalo válido para histórico de músicas.');
+                console.error('Ãndice fora do intervalo vÃ¡lido para histÃ³rico de mÃºsicas.');
             }
         };
         
@@ -189,30 +189,30 @@ function getStreamingData() {
             var data = JSON.parse(this.responseText);
             var page = new Page();
 
-            // Extrai as informações relevantes para a música atual
+            // Extrai as informaÃ§Ãµes relevantes para a mÃºsica atual
             var currentSong = data.now_playing.song.title;
             var currentArtist = data.now_playing.song.artist;
 
-            // Atualiza o título da página
+            // Atualiza o tÃ­tulo da pÃ¡gina
             document.title = currentSong + ' - ' + currentArtist + ' | ' + RADIO_NAME;
 
-            // Atualiza as informações da música atual
+            // Atualiza as informaÃ§Ãµes da mÃºsica atual
             if (document.getElementById('currentSong').innerHTML !== currentSong) {
                 page.refreshCover(currentSong, currentArtist);
                 page.refreshCurrentSong(currentSong, currentArtist);
             }
 
-            // Extrai as informações relevantes para o histórico de músicas
+            // Extrai as informaÃ§Ãµes relevantes para o histÃ³rico de mÃºsicas
             var songHistory = data.song_history;
 
-            // Atualiza o histórico de músicas
+            // Atualiza o histÃ³rico de mÃºsicas
             for (var i = 0; i < songHistory.length; i++) {
                 var songData = songHistory[i].song;
                 page.refreshHistoric(songData, i);
             }
             
             if (showHistory) {
-                // Atualizar a interface do histórico
+                // Atualizar a interface do histÃ³rico
                 updateHistoryUI();
         
             }
@@ -238,7 +238,7 @@ function updateHistoryUI() {
 //####################################### AUDIO #######################################
 
 
-// Variável global para armazenar as músicas
+// Global variable to store songs
 var audio = new Audio(URL_STREAMING);
 
 // Player control

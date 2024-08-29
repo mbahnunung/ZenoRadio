@@ -1,3 +1,5 @@
+
+
 const RADIO_NAME = 'Webradio';
 
 // Change Stream URL Here, 
@@ -14,6 +16,9 @@ const url = 'https://api.zeno.fm/mounts/metadata/subscribe/n4gzbe9ufzzuv';
 
 // Visit https://api.vagalume.com.br/docs/ to get your API key
 const API_KEY = "18fe07917957c289983464588aabddfb";
+
+// DEFAULT COVER
+const DEFAULT_COVER_ART = 'img/noCover.png';
 
 // Variable to control history display: true = display / false = hides
 let showHistory = true; 
@@ -187,13 +192,13 @@ audio.onvolumechange = function () {
     }
 }
 
-audio.onerror = function () {
-    var confirmacao = confirm('Stream Down / Network Error. \nClick OK to try again.');
+//audio.onerror = function () {
+    //var confirmacao = confirm('Error on communicate to server. \nClick OK to try again.');
 
-    if (confirmacao) {
-        window.location.reload();
-    }
-}
+    //if (confirmacao) {
+        //window.location.reload();
+    //}
+//}
 
 document.getElementById('volume').oninput = function () {
     audio.volume = intToDecimal(this.value);
@@ -312,16 +317,16 @@ function handleDeezerResponse(data, song) {
         // Search Cover by Artist name
         // var artworkUrl = data.data[0].artist.picture_big;
         // Search Cover by song name
-        var artworkUrl = data.data[0].album.cover_big;
+        var artworkUrl = data.data[0].album.cover_xl;
 
         coverArt.style.backgroundImage = 'url(' + artworkUrl + ')';
         coverArt.className = 'animated bounceInLeft';
 
         coverBackground.style.backgroundImage = 'url(' + artworkUrl + ')';
     } else {
-        // Caso não haja dados ou a lista de dados esteja vazia,
-        // defina a capa padrão
-        var defaultArtworkUrl = 'img/cover.png';
+        // If there is no data or the data list is empty,
+        // set default cover
+        var defaultArtworkUrl = DEFAULT_COVER_ART;
 
         coverArt.style.backgroundImage = 'url(' + defaultArtworkUrl + ')';
         coverBackground.style.backgroundImage = 'url(' + defaultArtworkUrl + ')';
