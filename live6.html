@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>mbah nunung Online - Live streaming AAC+</title>
+    <title>mbah nunung Online - AAC+ streaming</title>
     <meta name="description" content="Radio Banyuwangi, Live Streaming Mbah Nunung Online, Banyuwangi, AAC+ streaming">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#171717"> 
@@ -34,7 +34,7 @@
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
    <link rel="stylesheet" type="text/css" href="https://cdn4.mbahnunungonline.net/css/animate.css?v2.1">
-   <link id="maintheme" href="https://cdn4.mbahnunungonline.net/css/style.css" rel="stylesheet" type="text/css"> 
+   <link rel="stylesheet" href="css/style_player.css">
    <link rel="manifest" href="/manifest.json">	
 
    <style>
@@ -61,9 +61,6 @@
         <div class="bg-mask"></div>
     </div>
     <main>
-         <div class="col">
-          <img src="https://warningfm.github.io/v3/img/9ELXNufd.png?v=1.0.0.1">
-         </div>
         <section id="player">
             <div class="container">
                 <div class="row web-player">
@@ -84,31 +81,29 @@
                                           </div>
                                     </div>
                                     <div class="col-12">
-                                        <div class="row">
-                                            <div class="play-pause col-12 col-md-2 text-center">
-                                                <i id="playerButton" class="fa fa-play" onclick="togglePlay()"></i>
+                                       <div class="row">
+                                         <div class="play-pause col-12 text-center">
+                                            <button class="btn-play" onclick="togglePlay()"><i id="playerButton" class="fa fa-play"></i> <span id="buttonPlay">PLAY</span></button></div>
+                                         </div>
+                                         <div class="row">
+                                         <div class="col-12 text-center">
+                                            <div class="row volume-control">
+                                            <div class="volume-icon col-1" onclick="mute()"><i id="playerMute" class="fa fa-volume-up"></i></div>
+                                            <div class="volume-slide col-10 text-center"><input type="range" id="volume" step="1" min="0" max="100" value="50"></div>
+                                            <div class="percentual-volume col-12">Volume <span id="volIndicator">&#8230;</span>%</div>
                                             </div>
-                                            <div class="col-12 col-md-10 text-center">
-                                                <div class="row volume-control">
-                                                    <div class="volume-icon col-1"><i class="fa fa-volume-up"></i></div>
-                                                    <div class="volume-slide col-10 text-center"><input type="range" id="volume"
-                                                            step="1" min="0" max="100" value="99"></div>
-                                                    <div class="percentual-volume col-12">Volume <span id="volIndicator">...</span>%</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 text-center call-lyrics">
-                                                <a href="#" class="lyrics" style="" data-target="#modalLyrics">Lyrics</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                         </div>
+                                       </div>
+                                      <p> 
+                                   </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row historic hidden">
+                 </div>
+                 <div class="row historic">
                     <div class="col-12">
-                       <h2> <a href="javascript:void(0);" id="triggerToggle" class="text-red"><i class="fa fa-bars"></i>Mari Diputer :</a></h2>
+                        <h2>Mari Diputer :</h2>
                         <div class="row" id="historicSong">
                             <article class="col-12 col-md-6">
                                 <div class="cover-historic"></div>
@@ -123,13 +118,13 @@
                                     <div class="artist">No Artist</div>
                                     <div class="song">No Title</div>
                                 </div>
-                            </article>
+                            </article>                         
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-     </main>
+    </main>
     <div class="modal fade" id="modalLyrics" tabindex="-1" role="dialog" aria-labelledby="lyricsSong" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
