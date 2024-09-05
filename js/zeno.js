@@ -99,7 +99,7 @@ function Page() {
         const Alfian = 'https://i.scdn.co/image/ab67616d0000b27383d45abd325bfbc2f40a3911';
         const SOLUSI_SEHAT = 'https://images2.imgbox.com/f8/ca/GwuLQxLZ_o.jpg';
         const Ari_Lasso = 'https://i.scdn.co/image/ab6761610000e5eb4e1ed336c3ff93a95fa44e14';
-        const Krismi_Rolas = 'https://thumbs2.imgbox.com/1b/62/RaBcIk5Y_t.jpg';
+        const Krismi_Rolas = 'https://thumbs2.imgbox.com/2b/5c/X4oKMJh2_t.png';
         const Andmesh = 'https://i1.sndcdn.com/artworks-000644192974-fr8aja-t500x500.jpg';
         const Dewa_19_Ft_Virzha = 'https://i.scdn.co/image/ab67616d0000b2734383e26d01a2dd18452b7b37';
         const Dewa_19_Ft_Ello = 'https://i.scdn.co/image/ab67616d0000b2730b591f8644a5a5106169a30a';
