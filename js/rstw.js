@@ -19,7 +19,7 @@ var API_SERVICE = 'deezer';
 const URL_STREAMING = 'https://stream.zeno.fm/uv0krbzgszpvv';
 
 //NOW PLAYING API.
-const API_URL = 'https://api.twj.es/radio_info/?radio_url='+URL_STREAMING';
+const API_URL = 'https://twj.es/radio_info/?radio_url='+URL_STREAMING
 
 // Visit https://api.vagalume.com.br/docs/ to get your API key
 const API_KEY = "18fe07917957c289983464588aabddfb";
