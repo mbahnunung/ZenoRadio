@@ -110,7 +110,7 @@ class Page {
             artistName.innerHTML = artist;
           
             try {
-              const response = await fetch('https://api.streamafrica.net/new.search?query=' + info.artist + ' ' + info.song + '&service=' + API_SERVICE.toLowerCase());
+              const response = await fetch('https://prod-api.radioapi.me/1ceb9727-3e36-4e64-99e7-f776b50c7f4f/musicsearch?query=' + info.artist + ' ' + info.song + '&service=' + API_SERVICE.toLowerCase());
               const data = await response.json();
           
               if (data && data.results && data.results.artwork) {
@@ -138,7 +138,7 @@ class Page {
             let urlCoverArt = defaultCoverArt; // Boot with default image outside of try...catch
             
             try {
-              const response = await fetch('https://api.streamafrica.net/new.search?query=' + artist + ' ' + song + '&service=' + API_SERVICE.toLowerCase());
+              const response = await fetch('https://prod-api.radioapi.me/1ceb9727-3e36-4e64-99e7-f776b50c7f4f/musicsearch?query=' + artist + ' ' + song + '&service=' + API_SERVICE.toLowerCase());
           
               if (!response.ok) {
                 throw new Error(`Error in API request: ${response.status} ${response.statusText}`);
