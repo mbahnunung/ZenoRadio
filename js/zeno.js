@@ -108,7 +108,7 @@ function Page() {
         const GamelAwan = 'https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/99/b5/ef/99b5ef28-8196-0307-dd64-d3defa86eb50/cover.jpg/1200x1200bb.png';
         const Adistya = 'https://i.scdn.co/image/ab67616d0000b273cac7c5e2d5bf5e61ebcbfae1';
         const DemyYoker = 'https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c6/6d/ba/c66dba5b-2972-3f16-ba13-f21eb6705287/cover.jpg/1200x1200bb.jpg';
-        const Rozy = 'https://images2.imgbox.com/64/0e/V0L2UmSW_o.jpg;
+        const Rozy = 'https://images2.imgbox.com/64/0e/V0L2UmSW_o.jpg';
         const Reny = 'https://cdns-images.dzcdn.net/images/cover/c4618c2ceba8781cb55443690a11c07d/1900x1900-000000-80-0-0.jpg';
         const Kurnia_Dewi = 'https://thumbs2.imgbox.com/25/17/7EGrbSWQ_t.jpg';
         const AlviAnanta = 'https://i1.sndcdn.com/artworks-000691852279-zhd4cw-t500x500.jpg';
