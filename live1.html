@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>mbah nunung Online - AAC+ streaming</title>
-    <meta name="description" content="Live Streaming Mbah Nunung Online Banyuwangi, Radio Banyuwangi, AAC+ streaming">
+    <title>mbah nunung Online - Live streaming AAC+</title>
+    <meta name="description" content="Radio Banyuwangi, Live Streaming Mbah Nunung Online, Banyuwangi, AAC+ streaming">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#171717"> 
     <meta name="robots" content="index, follow">
@@ -14,9 +14,9 @@
     <meta property="og:url" content="https://mbahnunungonline.net/live">
     <meta property="og:title" content="I'm listening mbah nunung Online">
     <meta property="og:site_name" content="mbah nunung Online">
-    <meta property="og:description" content="Mbah Nunung Online, Radio Bintang Tenggara Banyuwangi, Radio Banyuwangi">
+    <meta property="og:description" content="Radio Banyuwangi, Mbah Nunung Online, Radio Bintang Tenggara Banyuwangi.">
     <meta property="og:image" content="https://live.staticflickr.com/65535/53358993030_4e3d4b5ed1.jpg">
-    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:type" content="image/jpg">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
     <meta name="twitter:image" content="https://images.zeno.fm/OXaEPUd99817XKPidSxhgmIeEX6xRDzLAcbRlIsKHiQ/rs:fit:500:500/g:ce:0:0/aHR0cHM6Ly9zdHJlYW0tdG9vbHMuemVub21lZGlhLmNvbS9jb250ZW50L3N0YXRpb25zL2FneHpmbnBsYm04dGMzUmhkSE55TWdzU0NrRjFkR2hEYkdsbGJuUVlnSUNRcXN2LTRnc01DeElPVTNSaGRHbHZibEJ5YjJacGJHVVlnSUNReW9LM3JRa01vZ0VFZW1WdWJ3L2ltYWdlLz91cGRhdGVkPTE3MDAzNzI3NDIwMDA.webp"/>
@@ -26,31 +26,51 @@
     <meta name="twitter:player:stream:content_type" content="audio/aacp"/>
     <meta name="twitter:player:width" content="480"/>
     <meta name="twitter:player:height" content="50"/>
-    <meta property="og:site_name" content="mbahnunungonline.net"/>
+    <meta property="og:site_name" content="mbah nunung Online"/>
     <meta name="google-site-verification" content="C-y3Rm4dkzaiScMSfPMQI4bU35i-t-N6VwHibjLzr6U" />
     <link rel="preconnect" href="https://google.com/"/>
     <link rel="dns-prefetch" href="https://google.com/"/>
     <link rel="icon" type="image/png" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfWzLDv_HJEsmmnSEFBeFfT90qew2K7aT0tI7d0A04ta5vbLYlorg_yjHSneI8VHG6yNKj-W2fSgPmbdBp6_NELu-w_2pcbdN3a3Xmdf70EuYj49hO2EDRtde2bWAMADr-RwhVrNxWY29obydA4FYrXf05kvlHATT2D5_IimNgwcPR8L1nSsUJCdxOVAa5/s1600/28115974.png" />
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" href="css/style.css">  
-    <link rel="manifest" href="/manifest.json">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
+   <link rel="stylesheet" type="text/css" href="https://cdn4.mbahnunungonline.net/css/animate.css?v2.1">
+   <link id="maintheme" href="https://cdn4.mbahnunungonline.net/css/style.css" rel="stylesheet" type="text/css"> 
+   <link rel="manifest" href="/manifest.json">	
+
+   <style>
+        /* For Desktop */
+        .desktop-story {
+        display: block; /* Displays on the desktop */
+        }
+
+        /* For Mobile */
+        @media (max-width: 768px) {
+        .mobile-story {
+            display: block; /* View on mobile */
+        }
+        .desktop-story {
+            display: none; /* Hide on mobile */
+        }
+        }
+    </style>
+
 </head>
-
 <body>
-
     <div class="cover-site">
         <div id="bgCover"></div>
         <div class="bg-mask"></div>
     </div>
     <main>
+         <div class="col">
+          <img src="https://cdn4.mbahnunungonline.net/img/mbahnn.png?v=1.0.0.1">
+         </div>
         <section id="player">
             <div class="container">
                 <div class="row web-player">
                     <div class="col-12 col-lg-10">
                         <div class="row">
                             <div class="col-12 col-md-5">
-                                <div class="cover-album">
+                                <div class="cover-album" style="height: 320px;"> 
                                     <div id="currentCoverArt"></div>
                                     <div class="watermark"></div>
                                 </div>
@@ -58,37 +78,26 @@
                             <div class="col-12 ml-md-auto col-md-6">
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="info-current-song"> 
-                                            <h3 id="currentArtist" class="current-artist text-captalize">Artist</h3>
-                                            <h2 id="currentSong" class="current-song text-uppercase">Song</h2>
-                                            
-                                        </div>
+                                        <div class="info-current-song">
+                                            <h3 id="currentArtist" class="current-artist text-captalize">No Artist</h3>
+                                            <h2 id="currentSong" class="current-song text-Letter case">No Title</h2>
+                                          </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="row">
-                                            <div class="play-pause col-12 col-md-6 text-center">
-                                                <button  type="button" class="btn-play" onclick="togglePlay()">
-                                                    <i id="playerButton" class="fa fa-play"></i> <span id="buttonPlay">PLAY</span>
-                                                </button>
+                                            <div class="play-pause col-12 col-md-2 text-center">
+                                                <i id="playerButton" class="fa fa-play" onclick="togglePlay()"></i>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 col-md-6 text-center">
+                                            <div class="col-12 col-md-10 text-center">
                                                 <div class="row volume-control">
-                                                    <div class="volume-icon col-1">
-                                                        <i class="fa fa-volume-up"></i>
-                                                    </div>
-                                                    <div class="volume-slide col-10 text-center">       
-                                                        <input type="range" id="volume" step="1" min="0" max="100" value="80" onchange="updateVolume(this.value)">
-                                                        <label for="volume">Volume:</label>
-                                                        <span id="volIndicator">80</span> %
-                                                    </div>
+                                                    <div class="volume-icon col-1"><i class="fa fa-volume-up"></i></div>
+                                                    <div class="volume-slide col-10 text-center"><input type="range" id="volume"
+                                                            step="1" min="0" max="100" value="99"></div>
+                                                    <div class="percentual-volume col-12">Volume <span id="volIndicator">...</span>%</div>
                                                 </div>
-                                            </div> 
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 col-md-6 text-center call-lyrics">
-                                                <a href="#" class="lyrics"  data-target="#modalLyrics">LYRIC</a>
+                                            </div>
+                                            <div class="col-12 text-center call-lyrics">
+                                                <a href="#" class="lyrics" style="" data-target="#modalLyrics">Lyrics</a>
                                             </div>
                                         </div>
                                     </div>
@@ -99,49 +108,49 @@
                 </div>
                 <div class="row historic hidden">
                     <div class="col-12">
-                        <h2>Mari Diputer</h2>
+                       <h2> <a href="javascript:void(0);" id="triggerToggle" class="text-red"><i class="fa fa-bars"></i>Mari Diputer :</a></h2>
                         <div class="row" id="historicSong">
                             <article class="col-12 col-md-6">
-                                <div class="cover-historic" id="cover-historic-1"></div>
+                                <div class="cover-historic"></div>
                                 <div class="music-info">
-                                    <div class="artist">Artist</div>
-                                    <div class="song">Song</div>
+                                    <div class="artist">No Artist</div>
+                                    <div class="song">No Title</div>
                                 </div>
                             </article>
                             <article class="col-12 col-md-6">
-                                <div class="cover-historic" id="cover-historic-2"></div>
+                                <div class="cover-historic"></div>
                                 <div class="music-info">
-                                   <div class="artist">Artist</div>
-                                    <div class="song">Song</div>
+                                    <div class="artist">No Artist</div>
+                                    <div class="song">No Title</div>
                                 </div>
-                            </article>                              
+                            </article>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
+     </main>
     <div class="modal fade" id="modalLyrics" tabindex="-1" role="dialog" aria-labelledby="lyricsSong" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="lyricsSong">Letra</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <h5 class="modal-title" id="lyricsSong">Lyrics</h5>
+                    <button type="button" style="color: #fff" class="close" data-dismiss="modal" aria-label="Fechar">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 
                 <div class="modal-body" id="lyric"></div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://warningfm.github.io/v3/js/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/zeno.js"></script>
+    <script type="text/javascript" src="js/script.js"></script> 
     <script>
         if ('serviceWorker' in navigator) {
           window.addEventListener('load', function() {
@@ -153,6 +162,7 @@
               });
           });
         }
-      </script>      
+      </script>	
+<small style="bottom: 8px;font-size: 8px;position: fixed;right: 8px;text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);z-index: 1004;"><b><a style="color:#fff;text-decoration: none;" target="_blank" href="https://mbahnunungonline.net/live" title="Internet Radio Streaming">NNG.NET</a></b></small>
 </body>
 </html>
