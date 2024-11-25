@@ -13,7 +13,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 const RADIO_NAME = 'mbah nunung Online';
 
 // SELECT ARTWORK PROVIDER, ITUNES, DEEZER & SPOTIFY or AZURACAST. eg : spotify 
-var API_SERVICE = 'SPOTIFY'; 
+var API_SERVICE = 'Deezer'; 
 
 // Change DEFAULT COVER
 const DEFAULT_COVER_ART = 'https://cdn4.mbahnunungonline.net/img/noCover.png';
