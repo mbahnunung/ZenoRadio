@@ -78,7 +78,7 @@ function Page() {
   // Artist Covers - Below 
   this.refreshCover = function (song = '', artist) {
         const BEN_ISTIQOMAH = 'https://i.scdn.co/image/ab67616d0000b273fb6ff58fc0ee0612de81ce89';
-        const BluëKUtHUQ = 'https://e.snmc.io/i/1200/s/40199f8c8f91ac3b38aafdf3ef3f1f24/2523830';
+        const BluëKUtHUQ = 'https://i.scdn.co/image/ab67616d0000b2735e77f9aae722825ea3cc7238';
         const TS = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoYOoThYoQy_1IHIOkOWhSv7ZumvhWQVgCCUAa1PtItmRqi7LpFLBOlRVnmMJvjw2_m91utqlbmj_XRJzqxROWHC5fJqk664UghWdsbX_sqI4vMFue3Ii68m4cfh5kQNAWFM6v4YGjSyP1TdH1SySeBmMx9Ewaeyyu5qhTcon4wKP0VFY9KxHvJrEScFED/s1600/P8KFcGD.png';
         const Erina = 'https://i.imgur.com/efV8b3Z.jpg';
         const Dengarkami = 'https://warningfm.github.io/v3/img/yx3lPLHp_t.jpg';
@@ -103,7 +103,7 @@ function Page() {
         const Andmesh = 'https://i1.sndcdn.com/artworks-000644192974-fr8aja-t500x500.jpg';
         const Dewa_19_Ft_Virzha = 'https://i.scdn.co/image/ab67616d0000b2734383e26d01a2dd18452b7b37';
         const Dewa_19_Ft_Ello = 'https://i.scdn.co/image/ab67616d0000b2730b591f8644a5a5106169a30a';
-        const All_Artist_BWI = 'https://i.ytimg.com/vi/tm9aDZJlMb8/maxresdefault.jpg';
+        const All_Artist_BWI = 'https://liriklaguindonesia.net/wp-content/uploads/2018/09/allartisbwi-goyang250-300x300.jpg';
         const EghaLatoya  = 'https://i1.sndcdn.com/artworks-000145717002-8rm80q-t500x500.jpg';
         const GamelAwan = 'https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/99/b5/ef/99b5ef28-8196-0307-dd64-d3defa86eb50/cover.jpg/1200x1200bb.png';
         const Adistya = 'https://i.scdn.co/image/ab67616d0000b273cac7c5e2d5bf5e61ebcbfae1';
