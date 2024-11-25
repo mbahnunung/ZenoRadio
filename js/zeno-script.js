@@ -79,7 +79,7 @@ function Page() {
   }
  this.refreshCover = function (song = '', artist) {
         // Default cover art
-        var urlCoverArt = 'img/cover.png';
+        var urlCoverArt = DEFAULT_COVER_ART;
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
