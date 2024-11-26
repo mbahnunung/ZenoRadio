@@ -121,7 +121,7 @@ function Page() {
         const Virgia_Hassan = 'https://i.ytimg.com/vi/g3A7Cp2yAro/maxresdefault.jpg';
         const Vita = 'https://live.staticflickr.com/65535/53458574431_71955797d8_z.jpg';
         const Melinda_Varera = 'https://i.scdn.co/image/ab67616d0000b2739e8575dbb9c92a4f3984a811'; 
-        const Furkan_Sert = 'https://i1.sndcdn.com/artworks-000498456858-0gn1c8-t500x500.jpg'; 
+        const Furkan_Sert = 'https://i.scdn.co/image/ab67616d0000b27301f62d04407be638080c7293'; 
         
         if (artist == 'BEN ISTIQOMAH') {var urlCoverArt = BEN_ISTIQOMAH;}
             else if (artist == 'BluëKUtHUQ') {var urlCoverArt = BluëKUtHUQ;}
