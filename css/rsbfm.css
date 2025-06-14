@@ -57,7 +57,7 @@ body {
 .cover-album {
     max-width: 80%;
     margin: auto;
-    background: url('https://warningfm.github.io/v3/img/bg_cover.jpg') no-repeat;
+    background: url('https://cdn4.mbahnunungonline.net/img/sbradio.png') no-repeat;
     background-size: cover;
     border: 1px solid #0000ff;
     border-radius: 10px;
@@ -282,7 +282,7 @@ input[type=range]::-ms-thumb {
     height: 95px;
     margin-right: 15px;
     float: left;
-    background: url('https://raw.githubusercontent.com/mbahnunung/v3/kn/img/Suara-Banyuwangi-FM.png') no-repeat;
+    background: url('https://cdn4.mbahnunungonline.net/img/sbradio.png') no-repeat;
     background-size: cover;
     border: 1px solid #0000ff;
     border-radius: 10px;
