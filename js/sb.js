@@ -22,7 +22,7 @@ const url = 'https://api.zeno.fm/mounts/metadata/subscribe/skk0a2d6sd0uv';
 const API_KEY = "18fe07917957c289983464588aabddfb";
 
 // Change DEFAULT COVER
-const DEFAULT_COVER_ART = 'https://raw.githubusercontent.com/mbahnunung/v3/kn/img/Suara-Banyuwangi-FM.png';
+const DEFAULT_COVER_ART = 'https://i.imgur.com/rIVgEGi.png';
 
 // Variable to control history display: true = display / false = hides
 let showHistory = true; 
