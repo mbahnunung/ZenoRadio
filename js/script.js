@@ -87,7 +87,7 @@ class Page {
         // Function to update the cover
         this.refreshCover = function (song = '', artist) {
             // Default cover art
-            var urlCoverArt = 'img/cover.png';
+            var urlCoverArt = 'https://cdn4.mbahnunungonline.net/img/NoCover.png';
 
             // Creation of the script tag to make the JSONP request to the Deezer API
             const script = document.createElement('script');
@@ -393,12 +393,12 @@ function getStreamingData(data) {
 
     var page = new Page();
 
-    // Formatar caracteres para UTF-8
+    // Format characters to UTF-8
     let song = jsonData.currentSong.replace(/&apos;/g, '\'').replace(/&amp;/g, '&');
     let artist = jsonData.currentArtist.replace(/&apos;/g, '\'').replace(/&amp;/g, '&');
 
-    // Mudar o título
-    document.title = song + ' - ' + artist + ' | ' + RADIO_NAME;
+    // Change title
+    document.title = artist + ' - ' + song + ' | ' + RADIO_NAME;
 
     page.refreshCover(song, artist);
     page.refreshCurrentSong(song, artist);
