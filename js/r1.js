@@ -142,7 +142,7 @@ function Page() {
         }
       }
     }
-    xhttp.open('GET', 'https://api.miradio.pro/musicsearch?query=' + artist + ' ' + song + '&service=' + API_SERVICE.toLowerCase());
+    xhttp.open('GET', 'https://prod-api.radioapi.me/1ceb9727-3e36-4e64-99e7-f776b50c7f4f/musicsearch?query=' + artist + ' ' + song + '&service=' + API_SERVICE.toLowerCase());
     xhttp.send();
   }
 
