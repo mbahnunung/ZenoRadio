@@ -83,7 +83,7 @@ function Page() {
         const Erina = 'https://i.ytimg.com/vi/1NTsu5MhbpA/sddefault.jpg';
         const SEKAR_KIJANG = 'https://cdn-images.dzcdn.net/images/cover/de30690a397431bbcdbde02e0b63371f/500x500-000000-80-0-0.jpg';
         const JINGLE = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwRqAS90NVntGw3KRvRy8ZfMmOWAUH6r7-0fDph8OXZE5aOEE8VHnvNP4DqpPNTOaQ6eqJJUpyW-QG9092-UjOCnbw4hzHXkZ4q4_68WeZHMqWHcUW6qV42XVK-EJhiqNSLXwveYZnUGWuSs6QOy0bz2omDTyrE-yUay1TbClQS5a91JjyKskyNtWT0bRo/s1600/ed6F7ZU.jpg';
-        const ADZANDHUHUR = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2F9RU0k7w_EWKjhsDP-YJAfCnFxFzW21G8mqmiSDSf-J5ocGv4yOjb5nuGFhlJW9iBAPWgjEn4jhr-bt-CK84RGFtJf6JneNMZgpbYV1Mi-mwbr7rzeu77mm-MqL7rbk_8O5sduTnGPdMj000VGVCbGc_gR1IgAr6-FrDcXpg-vun-lebVxtLEnuGAwUz/s1600/m2iqnIm.jpg';
+        const ADZANDHUHUR = 'https://live.staticflickr.com/65535/53815587960_2ded7e8990_z.jpg';
         const ASHAR = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAkb2u1BXZyewCrcabezpQsAP5OVlOJBW1bSR2VD3Ct497ubsePRslOC74TCSna3aKQoPo8j_oPsX0UZpC1Qau0-pztX0uH66cuxA2F017wwnoFXYauEwaJPiqLEjtepu4PH0xxwVVIXExDIRCw7yWREoGPxQ5pN-gLftIwtSJD7fcUOgeuGMtGAyR-RYu/s1600/uJr1nZIi_t.jpg';
         const ADZANMAGHRIB = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNqNb72rVTrjbv4OaLt1qAFkjySlaFJp34YyC_XJ6RNtoBXq_bYSp8cmubhyphenhyphenKBUxxytuneVwHHCSMmomBwSYN4LdmH6QXTV1e5YIkjTS0677w_lnuMqX3isz5WIhFO_6pAHJriBkQyevuv5AgH1_hpsoQYsliB_5KsyFzXi2STQ9GGKWIB9l5IiAg8_uuc/s1600/sXTgm2j.jpg';
         const OpeningRadio = 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/opening-soon-design-template-945288577483c2347c1f05bb83a2b7a2_screen.jpg?ts=1575470323';
@@ -121,8 +121,8 @@ function Page() {
         const Virgia_Hassan = 'https://i.ytimg.com/vi/g3A7Cp2yAro/maxresdefault.jpg';
         const Vita = 'https://live.staticflickr.com/65535/53458574431_71955797d8_z.jpg';
         const Melinda_Varera = 'https://i.scdn.co/image/ab67616d0000b2739e8575dbb9c92a4f3984a811';
-        const UCAPAN_OPENING = 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/opening-soon-design-template-945288577483c2347c1f05bb83a2b7a2_screen.jpg?ts=1575470323';
-        const IKLAN = 'https://warningfm.github.io/v3/img/2uhHSB5.png';
+        const UCAPAN_OPENING = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzGVmq3IyMXLjvzFJiwn4e7QM0KO2kxS9a6k82wpwA5HOIBhuKYbfWm81jYOYvSqSZlRX3kPG_ZeVD-059rWmKdDdL1ITdvCv-iwtANHFyPinLecN_RCrBTGQK3mjCYjEGdj0gBNnDMM6QZ2DcnkVuTNEA_Vm2VEOu21HHyPrvFIb2qKnv4hqNDEufPfw/s1600/openingRSB.jpg';
+        const IKLAN = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbk__nyxv_204MHCwkda_oaNO_zbnuo9z_4zjVQB_G3JGI6CO5b5e-WGNPLevN4LBLL_aB8798Dven-sdT1XvqCsgVvxsvx_EcmQnltTbGr3QGB1dk0p06Iow26p0ahVfwKSMzgut4vAXyUDgRzHvU0UWynQfeOrDamYh4-AGbCXBrX80o4gnKvzgQnXM/s1600/2uhHSB5.png';
         
         if (artist == 'BEN ISTIQOMAH') {var urlCoverArt = BEN_ISTIQOMAH;}
             else if (artist == 'BluëKUtHUQ') {var urlCoverArt = BluëKUtHUQ;}
@@ -252,7 +252,7 @@ function Page() {
 
     this.setVolume = function () {
         if (typeof (Storage) !== 'undefined') {
-            var volumeLocalStorage = (!localStorage.getItem('volume')) ? 70 : localStorage.getItem('volume');
+            var volumeLocalStorage = (!localStorage.getItem('volume')) ? 80 : localStorage.getItem('volume');
             document.getElementById('volume').value = volumeLocalStorage;
             document.getElementById('volIndicator').innerHTML = volumeLocalStorage;
         }
