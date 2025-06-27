@@ -13,7 +13,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 const RADIO_NAME = 'Mantab Herbal FM';
 
 // Change Zeno Stream URL Here, .
-const URL_STREAMING = 'ttps://stream.zeno.fm/p3flr3pjqwhtv';
+const URL_STREAMING = 'https://stream.zeno.fm/p3flr3pjqwhtv';
 
 //API URL Zeno Now Playing
 const url = 'https://api.zeno.fm/mounts/metadata/subscribe/p3flr3pjqwhtv';
