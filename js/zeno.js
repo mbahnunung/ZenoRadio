@@ -284,7 +284,7 @@ function Page() {
                 document.getElementsByClassName('lyrics')[0].removeAttribute('data-toggle');
             }
         }
-        xhttp.open('GET', 'https://api.vagalume.com.br/search.php?apikey=' + API_KEY + '&art=' + currentArtist + '&mus=' + currentSong.toLowerCase(), true);
+        xhttp.open('GET', 'https://api.vagalume.com.br/search.art?apikey=' + API_KEY + '&art=' + currentArtist + '&mus=' + currentSong.toLowerCase(), true);
         xhttp.send()
     }
 }
