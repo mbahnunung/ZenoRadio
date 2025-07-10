@@ -79,7 +79,7 @@ function Page() {
   this.refreshCover = function (song = '', artist) {
         const BEN_ISTIQOMAH = 'https://i.scdn.co/image/ab67616d0000b273fb6ff58fc0ee0612de81ce89';
         const BluëKUtHUQ = 'https://i.scdn.co/image/ab67616d0000b2735e77f9aae722825ea3cc7238';
-        const Della_Monica = 'https://cdn-images.dzcdn.net/images/artist/0c82610d97996f33459dfbdd909f256a/1900x1900-000000-80-0-0.jpg';
+        const Della_Monica = 'https://i1.sndcdn.com/artworks-000691872055-4fze2e-t500x500.jpg';
         const Erina = 'https://i.ytimg.com/vi/1NTsu5MhbpA/sddefault.jpg';
         const Dengarkami = 'https://warningfm.github.io/v3/img/yx3lPLHp_t.jpg';
         const JINGLE = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwRqAS90NVntGw3KRvRy8ZfMmOWAUH6r7-0fDph8OXZE5aOEE8VHnvNP4DqpPNTOaQ6eqJJUpyW-QG9092-UjOCnbw4hzHXkZ4q4_68WeZHMqWHcUW6qV42XVK-EJhiqNSLXwveYZnUGWuSs6QOy0bz2omDTyrE-yUay1TbClQS5a91JjyKskyNtWT0bRo/s1600/ed6F7ZU.jpg';
