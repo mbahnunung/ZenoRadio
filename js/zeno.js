@@ -10,7 +10,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-const RADIO_NAME = 'mbah nunung Online';
+const RADIO_NAME = 'mbah nunung Online Live';
 
 // Change Zeno Stream URL Here, .
 const URL_STREAMING = 'https://stream.zeno.fm/n4gzbe9ufzzuv';
