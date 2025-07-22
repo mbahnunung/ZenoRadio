@@ -298,7 +298,7 @@ function refreshCoverForHistory(song, artist, index) {
             // Update cover by artist name
             // var artworkUrl = data.data[0].artist.picture_big;
             // Update cover by song name
-            var artworkUrl = data.data[0].album.cover_big;
+            var artworkUrl = data.data[0].album.cover_medium;
             // Update song cover in history using correct index
             var $coverArt = document.querySelectorAll('#historicSong article .cover-historic')[index];
             $coverArt.style.backgroundImage = 'url(' + artworkUrl + ')';
