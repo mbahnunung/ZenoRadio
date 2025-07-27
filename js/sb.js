@@ -13,10 +13,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 const RADIO_NAME = 'Radio Suara Banyuwangi FM Live';
 
 // Change Zeno Stream URL Here, .
-const URL_STREAMING = 'https://stream.zeno.fm/skk0a2d6sd0uv';
+const URL_STREAMING = 'https://stream.zeno.fm/kc67gypcxghtv';
 
 //API URL Zeno Now Playing
-const url = 'https://api.zeno.fm/mounts/metadata/subscribe/skk0a2d6sd0uv';
+const url = 'https://api.zeno.fm/mounts/metadata/subscribe/kc67gypcxghtv';
 
 // Visit https://api.vagalume.com.br/docs/ to get your API key
 const API_KEY = "18fe07917957c289983464588aabddfb";
