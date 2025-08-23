@@ -22,7 +22,7 @@ const url = 'https://api.zeno.fm/mounts/metadata/subscribe/kc67gypcxghtv';
 const API_KEY = "18fe07917957c289983464588aabddfb";
 
 // Change DEFAULT COVER
-const DEFAULT_COVER_ART = 'https://cdn.suarabanyuwangi.info/img/cover.png';
+const DEFAULT_COVER_ART = 'https://raw.githubusercontent.com/suarabanyuwangi/v5/refs/heads/main/img/cover.png';
 
 // Variable to control history display: true = display / false = hides
 let showHistory = true; 
