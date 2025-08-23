@@ -83,7 +83,7 @@ function Page() {
         const Della_Monica = 'https://i1.sndcdn.com/artworks-000691872055-4fze2e-t500x500.jpg';
         const Erina = 'https://i.ytimg.com/vi/1NTsu5MhbpA/sddefault.jpg';
         const Happy_Asmara = 'https://i1.sndcdn.com/artworks-a9HEa272aWLyZWJn-Q8aisA-t500x500.jpgg';
-        const JINGLE = 'https://cdn.suarabanyuwangi.info/img/Jingle_Radio.png';
+        const JINGLE = 'https://live.staticflickr.com/65535/53804698952_be7cefe6cd_z.jpg';
         const JINGLESETELAHIKLAN = 'https://lastfm.freetls.fastly.net/i/u/770x0/4b910aad2337b3254673b4562e89bc4e.png';
         const BENTRAP = 'https://thumbs2.imgbox.com/9c/7c/NhSEFqAC_t.png';
         const ADZAN_DHUHUR = 'https://live.staticflickr.com/65535/53815587960_2ded7e8990_z.jpg';
