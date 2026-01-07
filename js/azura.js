@@ -16,7 +16,7 @@ const RADIO_NAME = 'Bintang Tenggara - Live streaming';
 const URL_STREAMING = "https://sv.stri.my.id:3310/rbtfm"
 
 // NEW UNIFIED API ENDPOINT
-const API_URL = "https://sv.stri.my.id/api/nowplaying/27"
+const API_URL = "https://asv.alhastream.com/api/nowplaying/27"
 
 // Visit https://api.vagalume.com.br/docs/ to get your API key
 const API_KEY = "18fe07917957c289983464588aabddfb"
