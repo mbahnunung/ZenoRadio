@@ -12,7 +12,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 const RADIO_NAME = 'mbah nunung Online Live';
 
-// Change Zeno Stream URL Here, .
+// Change Zeno Stream URL Here, ..
 const URL_STREAMING = 'https://free.rcast.net/65479';
 
 //API URL Zeno Now Playing
