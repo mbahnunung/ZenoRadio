@@ -13,7 +13,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 const RADIO_NAME = 'mbah nunung Online Live';
 
 // Change Zeno Stream URL Here, ..
-const URL_STREAMING = 'https://free.rcast.net/65479';
+const URL_STREAMING = 'https://s3.free-shoutcast.com/stream/18034';
 
 //API URL Zeno Now Playing
 const url = 'https://api.zeno.fm/mounts/metadata/subscribe/kc67gypcxghtv';
