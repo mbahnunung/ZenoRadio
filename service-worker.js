@@ -4,7 +4,7 @@ const CACHE_NAME = 'web-radio-v1';
 // List of files to be cached
 const urlsToCache = [
   '/',
-  '/index.html',
+  '/live',
   '/css/style.css',
   '/js/zeno.js',
   '/img/cover.png',
@@ -37,3 +37,4 @@ self.addEventListener('fetch', function(event) {
     )
   );
 });
+
