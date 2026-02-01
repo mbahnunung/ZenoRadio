@@ -86,8 +86,7 @@ class Page {
 
         // Function to update the cover
         this.refreshCover = function (song = '', artist) {
-            // Default cover art
-            var defaultArtworkUrl = DEFAULT_COVER_ART;
+           
 
             // Creation of the script tag to make the JSONP request to the Deezer API
             const script = document.createElement('script');
@@ -434,6 +433,8 @@ var musicHistory = [];
 function updateMusicHistory(artist, song) {
     // Add new song to beginning of history
     musicHistory.unshift({ artist: artist, song: song });
+    // Default cover art
+    var defaultArtworkUrl = DEFAULT_COVER_ART;
 
     // Keep only the last two songs in the history
     if (musicHistory.length > 4) {
