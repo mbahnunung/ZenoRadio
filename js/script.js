@@ -87,7 +87,7 @@ class Page {
         // Function to update the cover
         this.refreshCover = function (song = '', artist) {
             // Default cover art
-            var urlCoverArt = 'https://cdn4.mbahnunungonline.net/img/NoCover.png';
+            var urlCoverArt = 'https://cdn4.mbahnunungonline.net/img/nn-Cover.png';
 
             // Creation of the script tag to make the JSONP request to the Deezer API
             const script = document.createElement('script');
