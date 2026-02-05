@@ -116,12 +116,13 @@ body {
 }
 
 .volume-icon {
-    font-size: 22px;
+    font-size: 32px;
     margin-top: -5px;
 }
 
 .volume-slide {
-    line-height: 35px;
+     line-height:29px;
+     margin-top:0;font-size:28px;
 }
 
 .volume-control {
