@@ -93,7 +93,7 @@ body {
 }
 
 .info-current-song {
-    font-family: 'Share', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
 }
 
@@ -278,7 +278,7 @@ input[type=range]::-ms-thumb {
 
 .historic .music-info {
     color: #fff;
-    font-family: 'Share', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .historic .music-info .song {
