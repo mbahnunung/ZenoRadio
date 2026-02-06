@@ -12,12 +12,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 const RADIO_NAME = 'ADIKARA FM';
 
-// SELECT ARTWORK PROVIDER, ITUNES, DEEZER & SPOTIFY or AZURACAST. eg : spotify 
-var API_SERVICE = 'Deezer'; 
-
-//PASTE DEFAULT COVER
-const DEFAULT_COVER_ART = 'https://cdn4.mbahnunungonline.net/img/noCover.png';
-
 // Change Stream URL Here, Supports, ZENO
 const URL_STREAMING = 'https://stream.zeno.fm/duauceloe8bvv';
 
@@ -27,212 +21,170 @@ const url = 'https://api.zeno.fm/mounts/metadata/subscribe/duauceloe8bvv';
 // Visit https://api.vagalume.com.br/docs/ to get your API key
 const API_KEY = "18fe07917957c289983464588aabddfb";
 
+// DEFAULT COVER
+const DEFAULT_COVER_ART = 'https://cdn4.mbahnunungonline.net/img/NoCover.png';
+
 // Variable to control history display: true = display / false = hides
 let showHistory = true; 
 
 window.onload = function () {
-  var page = new Page;
-  page.changeTitlePage();
-  page.setVolume();
+    var page = new Page;
+    page.changeTitlePage();
+    page.setVolume();
 
-  var player = new Player();
-  player.play();
+    var player = new Player();
+    player.play();
 
-  getStreamingData();
-  // Interval to get streaming data in miliseconds
-  setInterval(function () {
     getStreamingData();
-  }, 4000);
+    // Interval to get streaming data in miliseconds
+    setInterval(function () {
+        getStreamingData();
+    }, 10000);
 
-  var coverArt = document.getElementsByClassName('cover-album')[0];
+    var coverArt = document.getElementsByClassName('cover-album')[0];
 
-  coverArt.style.height = coverArt.offsetWidth + 'px';
+    coverArt.style.height = coverArt.offsetWidth + 'px';
+
+    localStorage.removeItem('musicHistory');
 }
 
 // DOM control
-function Page() {
-  this.changeTitlePage = function (title = RADIO_NAME) {
-    document.title = title;
-  };
+class Page {
+    constructor() {
+        this.changeTitlePage = function (title = RADIO_NAME) {
+            document.title = title;
+        };
 
-  this.refreshCurrentSong = function (song, artist) {
-    var currentSong = document.getElementById('currentSong');
-    var currentArtist = document.getElementById('currentArtist');
+        this.refreshCurrentSong = function (song, artist) {
+            var currentSong = document.getElementById('currentSong');
+            var currentArtist = document.getElementById('currentArtist');
 
-    if (song !== currentSong.innerHTML) {
-      // Animate transition
-      currentSong.className = 'animated flipInY text-uppercase';
-      currentSong.innerHTML = song;
+            if (song !== currentSong.innerHTML) {
+                // Animate transition
+                currentSong.className = 'animated flipInY text-uppercase';
+                currentSong.innerHTML = song;
 
-      currentArtist.className = 'animated flipInY text-capitalize';
-      currentArtist.innerHTML = artist;
+                currentArtist.className = 'animated flipInY text-capitalize';
+                currentArtist.innerHTML = artist;
 
-      // Refresh modal title
-      document.getElementById('lyricsSong').innerHTML = song + ' - ' + artist;
+                // Refresh modal title
+                document.getElementById('lyricsSong').innerHTML = song + ' - ' + artist;
 
-      // Remove animation classes
-      setTimeout(function () {
-        currentSong.className = 'text-uppercase';
-        currentArtist.className = 'text-capitalize';
-      }, 2000);
-    }
-  }
- this.refreshCover = function (song = '', artist) {
-        // Default cover art
-        var urlCoverArt = 'img/cover.png';
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            var coverArt = document.getElementById('currentCoverArt');
-            var coverBackground = document.getElementById('bgCover');
-
-            // Get cover art URL on iTunes API
-            if (this.readyState === 4 && this.status === 200) {
-                var data = JSON.parse(this.responseText);
-                var artworkUrl100 = data.results;
-                var urlCoverArt = artworkUrl100.artwork.large;
-
-                coverArt.style.backgroundImage = 'url(' + urlCoverArt + ')';
-                coverArt.className = 'animated bounceInLeft';
-
-                coverBackground.style.backgroundImage = 'url(' + urlCoverArt + ')';
-
+                // Remove animation classes
                 setTimeout(function () {
-                    coverArt.className = '';
+                    currentSong.className = 'text-uppercase';
+                    currentArtist.className = 'text-capitalize';
                 }, 2000);
-
-                if ('mediaSession' in navigator) {
-                    navigator.mediaSession.metadata = new MediaMetadata({
-                        title: song,
-                        artist: artist,
-                        artwork: [{
-                                src: urlCoverArt,
-                                sizes: '96x96',
-                                type: 'image/png'
-                            },
-                            {
-                                src: urlCoverArt,
-                                sizes: '128x128',
-                                type: 'image/png'
-                            },
-                            {
-                                src: urlCoverArt,
-                                sizes: '192x192',
-                                type: 'image/png'
-                            },
-                            {
-                                src: urlCoverArt,
-                                sizes: '256x256',
-                                type: 'image/png'
-                            },
-                            {
-                                src: urlCoverArt,
-                                sizes: '384x384',
-                                type: 'image/png'
-                            },
-                            {
-                                src: urlCoverArt,
-                                sizes: '512x512',
-                                type: 'image/png'
-                            }
-                        ]
-                    });
-                }
             }
-        }
-        xhttp.open('GET', 'https://prod-api.radioapi.me/1ceb9727-3e36-4e64-99e7-f776b50c7f4f/musicsearch?query=' + artist + ' ' + song);
-        xhttp.send();
-    }
-    this.changeVolumeIndicator = function (volume) {
-        document.getElementById('volIndicator').innerHTML = volume;
+        };
 
-        if (typeof (Storage) !== 'undefined') {
-            localStorage.setItem('volume', volume);
-        }
-    }
+        // Function to update the cover
+        this.refreshCover = function (song = '', artist) {
+           
 
-    this.setVolume = function () {
-        if (typeof (Storage) !== 'undefined') {
-            var volumeLocalStorage = (!localStorage.getItem('volume')) ? 80 : localStorage.getItem('volume');
-            document.getElementById('volume').value = volumeLocalStorage;
-            document.getElementById('volIndicator').innerHTML = volumeLocalStorage;
-        }
-    }
+            // Creation of the script tag to make the JSONP request to the Deezer API
+            const script = document.createElement('script');
+            script.src = `https://api.deezer.com/search?q=${artist} ${song}&output=jsonp&callback=handleDeezerResponse`;
+            document.body.appendChild(script);
+        };
 
-    this.refreshLyric = function (currentSong, currentArtist) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                var data = JSON.parse(this.responseText);
 
-                var openLyric = document.getElementsByClassName('lyrics')[0];
+        this.changeVolumeIndicator = function (volume) {
+            document.getElementById('volIndicator').innerHTML = volume;
 
-                if (data.type === 'exact' || data.type === 'aprox') {
-                    var lyric = data.mus[0].text;
+            if (typeof (Storage) !== 'undefined') {
+                localStorage.setItem('volume', volume);
+            }
+        };
 
-                    document.getElementById('lyric').innerHTML = lyric.replace(/\n/g, '<br />');
-                    openLyric.style.opacity = "1";
-                    openLyric.setAttribute('data-toggle', 'modal');
+        this.setVolume = function () {
+            if (typeof (Storage) !== 'undefined') {
+                var volumeLocalStorage = (!localStorage.getItem('volume')) ? 80 : localStorage.getItem('volume');
+                document.getElementById('volume').value = volumeLocalStorage;
+                document.getElementById('volIndicator').innerHTML = volumeLocalStorage;
+            }
+        };
+
+        this.refreshLyric = function (currentSong, currentArtist) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    var data = JSON.parse(this.responseText);
+
+                    var openLyric = document.getElementsByClassName('lyrics')[0];
+
+                    if (data.type === 'exact' || data.type === 'aprox') {
+                        var lyric = data.mus[0].text;
+
+                        document.getElementById('lyric').innerHTML = lyric.replace(/\n/g, '<br />');
+                        openLyric.style.opacity = "1";
+                        openLyric.setAttribute('data-toggle', 'modal');
+                    } else {
+                        openLyric.style.opacity = "0.3";
+                        openLyric.removeAttribute('data-toggle');
+
+                        var modalLyric = document.getElementById('modalLyrics');
+                        modalLyric.style.display = "none";
+                        modalLyric.setAttribute('aria-hidden', 'true');
+                        (document.getElementsByClassName('modal-backdrop')[0]) ? document.getElementsByClassName('modal-backdrop')[0].remove() : '';
+                    }
                 } else {
-                    openLyric.style.opacity = "0.3";
-                    openLyric.removeAttribute('data-toggle');
-
-                    var modalLyric = document.getElementById('modalLyrics');
-                    modalLyric.style.display = "none";
-                    modalLyric.setAttribute('aria-hidden', 'true');
-                    (document.getElementsByClassName('modal-backdrop')[0]) ? document.getElementsByClassName('modal-backdrop')[0].remove(): '';
+                    document.getElementsByClassName('lyrics')[0].style.opacity = "0.3";
+                    document.getElementsByClassName('lyrics')[0].removeAttribute('data-toggle');
                 }
-            } else {
-                document.getElementsByClassName('lyrics')[0].style.opacity = "0.3";
-                document.getElementsByClassName('lyrics')[0].removeAttribute('data-toggle');
-            }
-        }
-        xhttp.open('GET', 'https://api.vagalume.com.br/search.php?apikey=' + API_KEY + '&art=' + currentArtist + '&mus=' + currentSong.toLowerCase(), true);
-        xhttp.send()
+            };
+            xhttp.open('GET', 'https://api.vagalume.com.br/search.php?apikey=' + API_KEY + '&art=' + currentArtist + '&mus=' + currentSong.toLowerCase(), true);
+            xhttp.send();
+        };
     }
 }
 
+// Global variable to store the songs
 var audio = new Audio(URL_STREAMING);
 
 // Player control
-function Player() {
-    this.play = function () {
-        audio.play();
+class Player {
+    constructor() {
+        this.play = function () {
+            audio.play();
 
-        var defaultVolume = document.getElementById('volume').value;
+            var defaultVolume = document.getElementById('volume').value;
 
-        if (typeof (Storage) !== 'undefined') {
-            if (localStorage.getItem('volume') !== null) {
-                audio.volume = intToDecimal(localStorage.getItem('volume'));
+            if (typeof (Storage) !== 'undefined') {
+                if (localStorage.getItem('volume') !== null) {
+                    audio.volume = intToDecimal(localStorage.getItem('volume'));
+                } else {
+                    audio.volume = intToDecimal(defaultVolume);
+                }
             } else {
                 audio.volume = intToDecimal(defaultVolume);
             }
-        } else {
-            audio.volume = intToDecimal(defaultVolume);
-        }
-        document.getElementById('volIndicator').innerHTML = defaultVolume;
-    };
+            document.getElementById('volIndicator').innerHTML = defaultVolume;
+        };
 
-    this.pause = function () {
-        audio.pause();
-    };
+        this.pause = function () {
+            audio.pause();
+        };
+    }
 }
 
 // On play, change the button to pause
 audio.onplay = function () {
     var botao = document.getElementById('playerButton');
-
+    var bplay = document.getElementById('buttonPlay');
     if (botao.className === 'fa fa-play') {
         botao.className = 'fa fa-pause';
+        bplay.firstChild.data = 'PAUSE';
     }
 }
 
 // On pause, change the button to play
 audio.onpause = function () {
     var botao = document.getElementById('playerButton');
-
+    var bplay = document.getElementById('buttonPlay');
     if (botao.className === 'fa fa-pause') {
         botao.className = 'fa fa-play';
+        bplay.firstChild.data = 'PLAY';
     }
 }
 
@@ -300,117 +252,6 @@ function mute() {
     }
 }
 
-function getStreamingData(data) {
-
-    console.log("Content of received data:", data);
-    // Parse JSON
-    var jsonData = JSON.parse(data);
-
-    var page = new Page();
-
-    // Format characters to UTF-8
-    let song = jsonData.currentSong.replace(/&apos;/g, '\'').replace(/&amp;/g, '&');
-    let artist = jsonData.currentArtist.replace(/&apos;/g, '\'').replace(/&amp;/g, '&');
-
-    // Change the title
-    document.title = artist + ' - ' + song + ' | ' + RADIO_NAME;
-
-    page.refreshCover(song, artist);
-    page.refreshCurrentSong(song, artist);
-    page.refreshLyric(song, artist);
-
-    if (showHistory) {
-
-        // Check if the song is different from the last updated one
-        if (musicHistory.length === 0 || (musicHistory[0].song !== song)) {
-            // Update history with new song
-            updateMusicHistory(artist, song);
-        }
-
-        // Update the history interface
-        updateHistoryUI();
-
-    }
-}
-
-function updateHistoryUI() {
-    let historicElement = document.querySelector('.historic');
-    if (showHistory) {
-      historicElement.classList.remove('hidden'); // Show history
-    } else {
-      historicElement.classList.add('hidden'); // Hide history
-    }
-}
-
-// Global variable to store the history of the last two songs
-var musicHistory = [];
-
-// Function to update the history of the last two songs
-function updateMusicHistory(artist, song) {
-    // Adicionar a nova mÃºsica no inÃ­cio do histÃ³rico
-    musicHistory.unshift({ artist: artist, song: song });
-
-    // Keep only the last two songs in history
-    if (musicHistory.length > 4) {
-        musicHistory.pop(); // Remove the oldest song from the history
-    }
-
-    // Call function to display updated history
-    displayHistory();
-}
-
-function displayHistory() {
-    var $historicDiv = document.querySelectorAll('#historicSong article');
-    var $songName = document.querySelectorAll('#historicSong article .music-info .song');
-    var $artistName = document.querySelectorAll('#historicSong article .music-info .artist');
-
-    // Default cover art
-        var urlCoverArt = DEFAULT_COVER_ART;
-
-    // Display the last two songs in history, starting from index 1 to delete the current song
-    for (var i = 1; i < musicHistory.length && i < 3; i++) {
-        $songName[i - 1].innerHTML = musicHistory[i].song;
-        $artistName[i - 1].innerHTML = musicHistory[i].artist;
-
-        // Call the function to search for the song cover in the Deezer API
-        refreshCoverForHistory(musicHistory[i].song, musicHistory[i].artist, i - 1);
-
-        // Add class for animation
-        $historicDiv[i - 1].classList.add('animated');
-        $historicDiv[i - 1].classList.add('slideInRight');
-    }
-
-    // Remove animation classes after 2 seconds
-    setTimeout(function () {
-        for (var j = 0; j < 2; j++) {
-            $historicDiv[j].classList.remove('animated');
-            $historicDiv[j].classList.remove('slideInRight');
-        }
-    }, 2000);
-}
-
-// Function to update song cover in history
-function refreshCoverForHistory(song, artist, index) {
-    // Creation of the script tag to make the JSONP request to the Deezer API
-    const script = document.createElement('script');
-    script.src = `https://api.deezer.com/search?q=${encodeURIComponent(artist)} ${encodeURIComponent(song)}&output=jsonp&callback=handleDeezerResponseForHistory_${index}`;
-    document.body.appendChild(script);
-
-    // Deezer API response handling function for music history
-    window['handleDeezerResponseForHistory_' + index] = function (data) {
-        if (data.data && data.data.length > 0) {
-            // Update cover by artist name
-            // var artworkUrl = data.data[0].artist.picture_big;
-            // Update cover by song name
-            var artworkUrl = data.data[0].album.cover_big;
-            // Update song cover in history using correct index
-            var $coverArt = document.querySelectorAll('#historicSong article .cover-historic')[index];
-            $coverArt.style.backgroundImage = 'url(' + artworkUrl + ')';
-        }
-    };
-}
- 
- 
 // Function to handle event wiring
 function connectToEventSource(url) {
     // Create a new EventSource instance with the provided URL
@@ -424,8 +265,8 @@ function connectToEventSource(url) {
 
     // Add a listener for the 'error' event
     eventSource.addEventListener('error', function(event) {
-        console.error('Erro na conexÃ£o de eventos:', event);
-        // Tentar reconectar apÃ³s um intervalo de tempo
+        console.error('Erro na conexão de eventos:', event);
+        // Try to reconnect after a time interval
         setTimeout(function() {
             connectToEventSource(url);
         }, 1000);
@@ -470,163 +311,236 @@ function processData(data) {
 // Start connecting to the API
 connectToEventSource(url);
 
+// Defines the Deezer API response handling function in the global scope
+function handleDeezerResponse(data, song) {
+    var coverArt = document.getElementById('currentCoverArt');
+    var coverBackground = document.getElementById('bgCover');
 
-// Player control by keys
-document.addEventListener('keydown', function (k) {
-    var k = k || window.event;
-    var key = k.keyCode || k.which;
-    
+    if (data.data && data.data.length > 0) {
+        // Search Cover by Artist name
+        // var artworkUrl = data.data[0].artist.picture_big;
+        // Search Cover by song name
+        var artworkUrl = data.data[0].album.cover_xl;
+
+        coverArt.style.backgroundImage = 'url(' + artworkUrl + ')';
+        coverArt.className = 'animated bounceInLeft';
+
+        coverBackground.style.backgroundImage = 'url(' + artworkUrl + ')';
+    } else {
+        // If there is no data or the data list is empty,
+        // set default cover
+        var defaultArtworkUrl = DEFAULT_COVER_ART;
+
+        coverArt.style.backgroundImage = 'url(' + defaultArtworkUrl + ')';
+        coverBackground.style.backgroundImage = 'url(' + defaultArtworkUrl + ')';
+    }
+
+    setTimeout(function () {
+        coverArt.className = '';
+    }, 2000);
+
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: song,
+            artist: data.data[0].artist.name,
+            artwork: [{
+                    src: artworkUrl || defaultArtworkUrl,
+                    sizes: '96x96',
+                    type: 'image/png'
+                },
+                {
+                    src: artworkUrl || defaultArtworkUrl,
+                    sizes: '128x128',
+                    type: 'image/png'
+                },
+                {
+                    src: artworkUrl || defaultArtworkUrl,
+                    sizes: '192x192',
+                    type: 'image/png'
+                },
+                {
+                    src: artworkUrl || defaultArtworkUrl,
+                    sizes: '256x256',
+                    type: 'image/png'
+                },
+                {
+                    src: artworkUrl || defaultArtworkUrl,
+                    sizes: '384x384',
+                    type: 'image/png'
+                },
+                {
+                    src: artworkUrl || defaultArtworkUrl,
+                    sizes: '512x512',
+                    type: 'image/png'
+                }
+            ]
+        });
+    }
+}
+
+function getStreamingData(data) {
+
+    console.log("Conteúdo dos dados recebidos:", data);
+    // Parse JSON
+    var jsonData = JSON.parse(data);
+
+    var page = new Page();
+
+    // Format characters to UTF-8
+    let song = jsonData.currentSong.replace(/&apos;/g, '\'').replace(/&amp;/g, '&');
+    let artist = jsonData.currentArtist.replace(/&apos;/g, '\'').replace(/&amp;/g, '&');
+
+    // Change title
+    document.title = artist + ' - ' + song + ' | ' + RADIO_NAME;
+
+    page.refreshCover(song, artist);
+    page.refreshCurrentSong(song, artist);
+    page.refreshLyric(song, artist);
+
+    if (showHistory) {
+
+        // Check if the music is different from the last updated one
+        if (musicHistory.length === 0 || (musicHistory[0].song !== song)) {
+            // Update history with new song
+            updateMusicHistory(artist, song);
+        }
+
+        // Update the history interface
+        updateHistoryUI();
+
+    }
+}
+
+function updateHistoryUI() {
+    let historicElement = document.querySelector('.historic');
+    if (showHistory) {
+      historicElement.classList.remove('hidden'); // Show history
+    } else {
+      historicElement.classList.add('hidden'); // Hide history
+    }
+}
+
+// Global variable to store the history of the last two songs
+var musicHistory = [];
+
+// Function to update the history of the last two songs
+function updateMusicHistory(artist, song) {
+    // Add new song to beginning of history
+    musicHistory.unshift({ artist: artist, song: song });
+    // Default cover art
+    var defaultArtworkUrl = DEFAULT_COVER_ART;
+
+    // Keep only the last two songs in the history
+    if (musicHistory.length > 4) {
+        musicHistory.pop(); // Remove oldest song from history
+    }
+
+    // Call the function to display the updated history
+    displayHistory();
+}
+
+
+function displayHistory() {
+    var $historicDiv = document.querySelectorAll('#historicSong article');
+    var $songName = document.querySelectorAll('#historicSong article .music-info .song');
+    var $artistName = document.querySelectorAll('#historicSong article .music-info .artist');
+
+    // Display the last two songs in the history, starting from index 1 to delete the current song
+    for (var i = 1; i < musicHistory.length && i < 3; i++) {
+        $songName[i - 1].innerHTML = musicHistory[i].song;
+        $artistName[i - 1].innerHTML = musicHistory[i].artist;
+
+        // Call the function to fetch the song cover in the Deezer API
+        refreshCoverForHistory(musicHistory[i].song, musicHistory[i].artist, i - 1);
+
+        // Add class for animation
+        $historicDiv[i - 1].classList.add('animated');
+        $historicDiv[i - 1].classList.add('slideInRight');
+    }
+
+    // Remove animation classes after 2 seconds
+    setTimeout(function () {
+        for (var j = 0; j < 2; j++) {
+            $historicDiv[j].classList.remove('animated');
+            $historicDiv[j].classList.remove('slideInRight');
+        }
+    }, 2000);
+}
+
+// Function to update song cover in history
+function refreshCoverForHistory(song, artist, index) {
+    // Creation of the script tag to make the JSONP request to the Deezer API
+    const script = document.createElement('script');
+    script.src = `https://api.deezer.com/search?q=${encodeURIComponent(artist)} ${encodeURIComponent(song)}&output=jsonp&callback=handleDeezerResponseForHistory_${index}`;
+    document.body.appendChild(script);
+
+    // Deezer API response handling function for music history
+    window['handleDeezerResponseForHistory_' + index] = function (data) {
+        if (data.data && data.data.length > 0) {
+            // Update cover by artist name
+            // var artworkUrl = data.data[0].artist.picture_big;
+            // Update cover by song name
+            var artworkUrl = data.data[0].album.cover_big;
+            // Update song cover in history using correct index
+            var $coverArt = document.querySelectorAll('#historicSong article .cover-historic')[index];
+            $coverArt.style.backgroundImage = 'url(' + artworkUrl + ')';
+        }
+    };
+}
+
+
+document.addEventListener('keydown', function (event) {
+    var key = event.key;
     var slideVolume = document.getElementById('volume');
-
     var page = new Page();
 
     switch (key) {
         // Arrow up
-        case 38:
+        case 'ArrowUp':
             volumeUp();
             slideVolume.value = decimalToInt(audio.volume);
             page.changeVolumeIndicator(decimalToInt(audio.volume));
             break;
         // Arrow down
-        case 40:
+        case 'ArrowDown':
             volumeDown();
             slideVolume.value = decimalToInt(audio.volume);
             page.changeVolumeIndicator(decimalToInt(audio.volume));
             break;
         // Spacebar
-        case 32:
+        case ' ':
+        case 'Spacebar':
             togglePlay();
             break;
         // P
-        case 80:
+        case 'p':
+        case 'P':
             togglePlay();
             break;
         // M
-        case 77:
+        case 'm':
+        case 'M':
             mute();
             break;
-        // 0
-        case 48:
-            audio.volume = 0;
-            slideVolume.value = 0;
-            page.changeVolumeIndicator(0);
-            break;
-        // 0 numeric keyboard
-        case 96:
-            audio.volume = 0;
-            slideVolume.value = 0;
-            page.changeVolumeIndicator(0);
-            break;
-        // 1
-        case 49:
-            audio.volume = .1;
-            slideVolume.value = 10;
-            page.changeVolumeIndicator(10);
-            break;
-        // 1 numeric key
-        case 97:
-            audio.volume = .1;
-            slideVolume.value = 10;
-            page.changeVolumeIndicator(10);
-            break;
-        // 2
-        case 50:
-            audio.volume = .2;
-            slideVolume.value = 20;
-            page.changeVolumeIndicator(20);
-            break;
-        // 2 numeric key
-        case 98:
-            audio.volume = .2;
-            slideVolume.value = 20;
-            page.changeVolumeIndicator(20);
-            break;
-        // 3
-        case 51:
-            audio.volume = .3;
-            slideVolume.value = 30;
-            page.changeVolumeIndicator(30);
-            break;
-        // 3 numeric key
-        case 99:
-            audio.volume = .3;
-            slideVolume.value = 30;
-            page.changeVolumeIndicator(30);
-            break;
-        // 4
-        case 52:
-            audio.volume = .4;
-            slideVolume.value = 40;
-            page.changeVolumeIndicator(40);
-            break;
-        // 4 numeric key
-        case 100:
-            audio.volume = .4;
-            slideVolume.value = 40;
-            page.changeVolumeIndicator(40);
-            break;
-        // 5
-        case 53:
-            audio.volume = .5;
-            slideVolume.value = 50;
-            page.changeVolumeIndicator(50);
-            break;
-        // 5 numeric key
-        case 101:
-            audio.volume = .5;
-            slideVolume.value = 50;
-            page.changeVolumeIndicator(50);
-            break;
-        // 6 
-        case 54:
-            audio.volume = .6;
-            slideVolume.value = 60;
-            page.changeVolumeIndicator(60);
-            break;
-        // 6 numeric key
-        case 102:
-            audio.volume = .6;
-            slideVolume.value = 60;
-            page.changeVolumeIndicator(60);
-            break;
-        // 7
-        case 55:
-            audio.volume = .7;
-            slideVolume.value = 70;
-            page.changeVolumeIndicator(70);
-            break;
-        // 7 numeric key
-        case 103:
-            audio.volume = .7;
-            slideVolume.value = 70;
-            page.changeVolumeIndicator(70);
-            break;
-        // 8
-        case 56:
-            audio.volume = .8;
-            slideVolume.value = 80;
-            page.changeVolumeIndicator(80);
-            break;
-        // 8 numeric key
-        case 104:
-            audio.volume = .8;
-            slideVolume.value = 80;
-            page.changeVolumeIndicator(80);
-            break;
-        // 9
-        case 57:
-            audio.volume = .9;
-            slideVolume.value = 90;
-            page.changeVolumeIndicator(90);
-            break;
-        // 9 numeric key
-        case 105:
-            audio.volume = .9;
-            slideVolume.value = 90;
-            page.changeVolumeIndicator(90);
+        // Numeric keys 0-9
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+            var volumeValue = parseInt(key);
+            audio.volume = volumeValue / 10;
+            slideVolume.value = volumeValue * 10;
+            page.changeVolumeIndicator(volumeValue * 10);
             break;
     }
 });
+
 
 function intToDecimal(vol) {
     return vol / 100;
