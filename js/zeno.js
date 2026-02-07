@@ -13,10 +13,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 const RADIO_NAME = 'mbah nunung Online Live';
 
 // Change Zeno Stream URL Here, ..
-const URL_STREAMING = 'https://stream.zeno.fm/kc67gypcxghtv';
+const URL_STREAMING = 'https://stream.zeno.fm/duauceloe8bvv';
 
 //API URL Zeno Now Playing
-const url = 'https://api.zeno.fm/mounts/metadata/subscribe/kc67gypcxghtv';
+const url = 'https://api.zeno.fm/mounts/metadata/subscribe/duauceloe8bvv';
 
 // Visit https://api.vagalume.com.br/docs/ to get your API key
 const API_KEY = "18fe07917957c289983464588aabddfb";
