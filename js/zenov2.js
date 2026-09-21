@@ -430,7 +430,7 @@ function handleDeezerResponse(data) {
 
     var hasResult = data && data.data && data.data.length > 0;
     // Search for the cover art by song title (artist.picture_big would search by artist)
-    var artworkUrl = hasResult ? data.data[0].album.cover_big : 'https://cdn.bintangtenggarafm.com/img/rbtfm-640.png';
+    var artworkUrl = hasResult ? data.data[0].album.cover_big : 'https://cdn4.mbahnunungonline.net/img/nn-Cover.png';
 
     coverArt.style.backgroundImage = 'url(' + artworkUrl + ')';
     coverArt.className = 'animated bounceInLeft';
