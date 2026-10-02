@@ -50,7 +50,7 @@ body {
 #bgCover {
     position: absolute;
     inset: 0;
-    background: url('../img/cover.png') center / cover no-repeat;
+    background: url('https://cdn4.mbahnunungonline.net/img/nocoverart.png') center / cover no-repeat;
     filter: blur(64px) saturate(140%);
     transform: scale(1.4);
 }
@@ -99,7 +99,7 @@ body {
     aspect-ratio: 1 / 1;
     flex: none;
     border-radius: 24px;
-    background: url('../img/cover.png') center / cover no-repeat;
+    background: url('https://cdn4.mbahnunungonline.net/img/nocoverart.png') center / cover no-repeat;
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
 }
 
