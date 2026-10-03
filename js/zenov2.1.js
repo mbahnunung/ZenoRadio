@@ -135,7 +135,7 @@ class Page {
         const Ajeng = 'https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/e5/47/cf/e547cfe3-f707-7175-9123-b640435f6a8c/cover.jpg/1200x1200bb.jpg';
         const Agnes_Monica = 'https://i.scdn.co/image/ab6761610000e5eb09160e5ffdc256e65713a8a9';
         const Alfian = 'https://i.scdn.co/image/ab67616d0000b27383d45abd325bfbc2f40a3911';
-        const SOLUSI_SEHAT = 'https://images2.imgbox.com/f8/ca/GwuLQxLZ_o.jpg';
+        const Silvy_Kumalasari = 'https://i.scdn.co/image/ab67616d0000b273d71eca8092e27dcf98065257';
         const Ari_Lasso = 'https://i.scdn.co/image/ab6761610000e5eb4e1ed336c3ff93a95fa44e14';
         const Krismi_Rolas = 'https://thumbs2.imgbox.com/2b/5c/X4oKMJh2_t.png';
         const Andmesh = 'https://i1.sndcdn.com/artworks-000644192974-fr8aja-t500x500.jpg';
@@ -181,7 +181,7 @@ class Page {
             else if (artist == 'Ajeng') {var urlCoverArt = Ajeng;}
             else if (artist == 'Agnes Monica') {var urlCoverArt = Agnes_Monica;}
             else if (artist == 'Alfian') {var urlCoverArt = Alfian;}
-            else if (artist == 'SOLUSI SEHAT') {var urlCoverArt = SOLUSI_SEHAT;}
+            else if (artist == 'Silvy Kumalasari') {var urlCoverArt = Silvy_Kumalasari;}
             else if (artist == 'Ari Lasso') {var urlCoverArt = Ari_Lasso;}
             else if (artist == 'Krismi Rolas') {var urlCoverArt = Krismi_Rolas;}
             else if (artist == 'Andmesh') {var urlCoverArt = Andmesh;}
