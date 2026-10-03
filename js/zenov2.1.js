@@ -361,20 +361,20 @@ audio.onplay = function () {
     setPlayerIcon('fa fa-pause', 'PAUSE');
 }
 
-// On pause, change the button to play (a menos que estejamos exibindo o
-// spinner de reconexão, que também pausa o áudio momentaneamente)
+// On pause, change the button to play (unless we are displaying the
+// reconnection spinner, which also momentarily pauses the audio)
 audio.onpause = function () {
     if (!isIntentionalPause && reconnectAttempts > 0) return;
     setPlayerIcon('fa fa-play', 'PLAY');
 }
 
-// Enquanto o áudio estiver em buffer, mostra o spinner girando
+// While the audio is buffering, show the spinning spinner.
 audio.addEventListener('waiting', function () {
     if (!audio.paused) setPlayerIcon('fa fa-spinner fa-spin', 'CARREGANDO');
 });
 
-// Áudio voltou a fluir de verdade: reseta as tentativas de reconexão e
-// habilita o watchdog (a partir daqui uma queda deve reconectar sozinha)
+// Audio is flowing properly again: reset reconnection attempts and
+// enables the watchdog (from this point on, a disconnection should automatically reconnect)
 audio.addEventListener('playing', function () {
     isIntentionalPause = false;
     reconnectAttempts = 0;
@@ -704,7 +704,7 @@ function displayHistory() {
 
 // Function to update the song cover in the history
 function refreshCoverForHistory(song, artist, index) {
-    // Criação da tag de script para fazer a requisição JSONP à API do Deezer
+    // Creating the script tag to make the JSONP request to the Deezer API
     const script = document.createElement('script');
     script.src = `https://api.deezer.com/search?q=${encodeURIComponent(artist)} ${encodeURIComponent(song)}&output=jsonp&callback=handleDeezerResponseForHistory_${index}`;
     document.body.appendChild(script);
@@ -712,11 +712,11 @@ function refreshCoverForHistory(song, artist, index) {
     // Function to handle the Deezer API response for the song history.
     window['handleDeezerResponseForHistory_' + index] = function (data) {
         if (data.data && data.data.length > 0) {
-            // Atualizar a capa pelo nome do artista
+            // Update the cover art based on the artist's name
             // var artworkUrl = data.data[0].artist.picture_big;
-            // Atualizar a capa pelo nome da música
+            // Update the cover art based on the song title
             var artworkUrl = data.data[0].album.cover_big;
-            // Atualizar a capa da música no histórico usando o índice correto
+            // Update the song cover in the history using the correct index.
             var $coverArt = document.querySelectorAll('#historicSong article .cover-historic')[index];
             $coverArt.style.backgroundImage = 'url(' + artworkUrl + ')';
         }
