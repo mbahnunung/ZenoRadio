@@ -7,7 +7,7 @@
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "https://mbahnunungonline.net/img/cover.png",
+      "src": "https://cdn4.mbahnunungonline.net/img/cover.png",
       "sizes": "192x192",
       "type": "image/png"
     }
