@@ -125,8 +125,8 @@
 
     <script type="text/javascript" src="js/zenov2.1.js?v=1.0"></script>
     <script>
-        // Modal de letra (substitui o modal do Bootstrap; o script.js sinaliza
-        // que há letra disponível colocando data-toggle no botão .lyrics)
+        // Letter modal (replaces Bootstrap's modal; script.js signals it)
+        // that lyrics are available by adding `data-toggle` to the `.lyrics` button)
         (function () {
             var modal = document.getElementById('modalLyrics');
             var openButton = document.querySelector('.lyrics');
@@ -139,7 +139,7 @@
 
             openButton.addEventListener('click', function (event) {
                 event.preventDefault();
-                if (!openButton.hasAttribute('data-toggle')) return; // sem letra disponível
+                if (!openButton.hasAttribute('data-toggle')) return; // no lyrics available
                 modal.style.display = 'flex';
                 modal.setAttribute('aria-hidden', 'false');
                 document.body.classList.add('modal-open');
@@ -154,7 +154,7 @@
             });
         })();
 
-        // Popover de volume (abre no clique do botão circular, fecha ao clicar fora)
+        // Volume popover (opens when clicking the circular button, closes when clicking outside)
         (function () {
             var wrap = document.querySelector('.volume-wrap');
             var toggle = document.querySelector('.volume-toggle');
@@ -176,5 +176,4 @@
         }
     </script>
 </body>
-
 </html>
